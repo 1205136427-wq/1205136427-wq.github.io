@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>吹影镂尘｜一出可以亲手演的数字影戏</title>
+  <meta name="description" content="《吹影镂尘》是一出可以亲手扮、亲手牵、亲手演的数字影戏。以剪纸与皮影为骨，以《白蛇传》为卷，让非遗工艺成为可玩的表演。">
+  <meta name="theme-color" content="#120e0a">
+  <link rel="stylesheet" href="story.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到内容</a>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="reading-progress" aria-hidden="true"><i id="progressBar"></i></div>
+
+  <header class="masthead" id="masthead">
+    <a class="brand" href="#cover" aria-label="回到序章">
+      <span class="brand-mark" aria-hidden="true">镂</span>
+      <span class="brand-type"><strong>吹影镂尘</strong><small>A PAPER-SHADOW OPERA</small></span>
+    </a>
+    <nav class="desk-nav" aria-label="章节导航">
+      <a href="#act-01" data-title="设计初衷"><span>01</span><em>初衷</em></a>
+      <a href="#act-02" data-title="影城世界观"><span>02</span><em>影城</em></a>
+      <a href="#act-03" data-title="角色设计"><span>03</span><em>角色</em></a>
+      <a href="#act-04" data-title="行头设计"><span>04</span><em>行头</em></a>
+      <a href="#act-05" data-title="游戏内"><span>05</span><em>游戏</em></a>
+      <a href="#act-06" data-title="牵线演出"><span>06</span><em>牵线</em></a>
+      <a href="#act-07" data-title="故事与舞台"><span>07</span><em>舞台</em></a>
+      <a href="#act-08" data-title="技术实现"><span>08</span><em>技术</em></a>
+      <a href="#act-09" data-title="传承与结语"><span>09</span><em>传承</em></a>
+    </nav>
+    <div class="header-tools">
+      <button class="tour-button" id="tourButton" type="button" aria-label="自动导览全页">
+        <span class="tour-icon" aria-hidden="true"><i></i></span>
+        <span id="tourLabel">自动导览</span>
+      </button>
+      <button class="menu-button" id="menuButton" type="button" aria-expanded="false" aria-controls="mobileMenu">目录</button>
+    </div>
+    <nav class="mobile-menu" id="mobileMenu" aria-label="移动端章节导航">
+      <a href="#act-01"><span>01</span>设计初衷</a>
+      <a href="#act-02"><span>02</span>影城世界观</a>
+      <a href="#act-03"><span>03</span>角色设计</a>
+      <a href="#act-04"><span>04</span>行头设计</a>
+      <a href="#act-05"><span>05</span>游戏内</a>
+      <a href="#act-06"><span>06</span>牵线演出</a>
+      <a href="#act-07"><span>07</span>故事与舞台</a>
+      <a href="#act-08"><span>08</span>技术实现</a>
+      <a href="#act-09"><span>09</span>传承与结语</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="cover" id="cover" aria-labelledby="coverTitle">
+      <div class="cover-media" aria-hidden="true"><img src="assets/key-art.jpg" alt=""></div>
+      <div class="cover-shade" aria-hidden="true"></div>
+      <div class="cover-lamp" aria-hidden="true"></div>
+
+      <div class="cover-inner">
+        <div class="cover-copy">
+          <p class="eyebrow light"><span></span>非遗数字影戏 · 可玩的文化转译</p>
+          <h1 class="cover-title" id="coverTitle"><span>吹影</span><span>镂尘</span></h1>
+          <div class="cover-sub">
+            <p class="cover-en">A PAPER-SHADOW OPERA</p>
+            <p class="cover-lead">你剪出谁，谁就在灯下活一次。<br>一具可拆解、可换装、可牵线的影偶；一方只有两根签子的舞台。</p>
+          </div>
+          <div class="cover-actions">
+            <a class="button button-solid" href="#act-01"><span>进入影城</span><b aria-hidden="true">↘</b></a>
+            <a class="button button-line" href="#act-06">直接牵线</a>
+          </div>
+          <div class="cover-facts" aria-label="作品概览">
+            <span><b>01</b>一方亮子</span>
+            <span><b>02</b>操控签</span>
+            <span><b>09</b>关节</span>
+          </div>
+        </div>
+
+        <aside class="cover-aside" aria-label="序章题记">
+          <p class="vertical-note">灯亮，影活。灯灭，影入卷。</p>
+          <div class="cover-seal" aria-label="入戏"><span>入</span><span>戏</span></div>
+        </aside>
+      </div>
+
+      <div class="cover-bottom">
+        <span>SCROLL TO ENTER</span>
+        <span>卷一 / 灯下</span>
+      </div>
+    </section>
+
+    <section class="act act-intent" id="act-01" data-chapter="初衷">
+      <div class="wrap">
+        <header class="section-head">
+          <div class="section-tag"><span>01</span><em>设计初衷</em></div>
+          <h2 class="display reveal">不是把非遗<br>放进玻璃柜，<br><i>而是交回手里。</i></h2>
+          <p class="section-deck reveal">先做一具身体，再让它在灯下活一次。我们把剪纸与皮影，从“被观看的对象”重新拆成可以上手的三件事：选皮、扮相、牵线。</p>
+        </header>
+
+        <div class="intent-grid">
+          <div class="intent-copy reveal">
+            <p class="dropcap">皮影真正动人的时刻，从来不在展柜里，而在灯后：一张牛皮被刻出呼吸，几根竹签让它有了骨节，一副嗓子与一阵锣鼓，才让它真正站起来。</p>
+            <p>所以我们没有把传统做成一层贴图。角色要被拆开，衣服要能重新穿戴，关节要能缀结，最后还要由玩家亲手牵着它完成一次表演。工艺不是背景知识，它本身就是玩法。</p>
+            <p>这是我们理解的“保护”：不是替传统决定它应该是什么样，而是把它交还给下一双愿意触摸、愿意试错、愿意再次演出的手。</p>
+          </div>
+
+          <figure class="intent-detail reveal">
+            <img src="assets/detail-head.png" alt="主角影偶头茬细节：黑发、金线、花饰与戏曲妆容">
+            <figcaption><span>MATERIAL / 皮与刀</span> 头茬的每一条金线，都对应一次落刀与一次留白。</figcaption>
+          </figure>
+
+          <blockquote class="intent-quote reveal">
+            <span class="quote-mark" aria-hidden="true">“</span>
+            <p>一张皮，<br>九处骨，<br>两根线，<br>一盏灯。</p>
+            <cite>—— 我们对“影戏”的最小定义</cite>
+          </blockquote>
+        </div>
+
+        <ol class="principles">
+          <li class="reveal"><span>01 / CRAFT</span><h3>从看到做</h3><p>把制皮、画稿、镂刻、敷彩与缀结，变成可以被理解和操作的步骤。</p></li>
+          <li class="reveal"><span>02 / BODY</span><h3>从做到演</h3><p>行头不是皮肤。冠、肩、袖、裙的结构，会改变影偶的重心与动作。</p></li>
+          <li class="reveal"><span>03 / LEGACY</span><h3>从演到传</h3><p>每一次演出，都生成一页可以被重新点亮的影卷。</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="act act-dark act-world" id="act-02" data-chapter="影城">
+      <div class="world-backdrop" aria-hidden="true"><img src="assets/white-snake.jpg" alt=""></div>
+      <div class="world-shade" aria-hidden="true"></div>
+      <div class="world-word" aria-hidden="true">影城</div>
+      <div class="wrap world-wrap">
+        <header class="section-head world-head">
+          <div class="section-tag light"><span>02</span><em>世界观</em></div>
+          <h2 class="display reveal light">一盏灯，<br><i>就是一座城。</i></h2>
+          <p class="section-deck light reveal">影城不是地图上的城。它由一方亮子、一罐灯油、一卷影卷和一群守影人组成。灯油烧的是记忆；影卷记的是故事；守影人负责在灯将熄时，把戏重新演一遍。</p>
+        </header>
+
+        <div class="world-lower">
+          <div class="world-story reveal">
+            <p>玩家是新入班的小镂匠。你在旧戏箱里找到一具褪色的影偶，修补她、替她重新做一身行头，再牵着她，把影城遗忘的戏一出一出演回来。</p>
+            <p>每当一个故事被重新演完，影城就多亮一盏灯。戏不是被“通关”的，而是被重新记住的。</p>
+          </div>
+          <dl class="world-terms">
+            <div class="reveal"><dt><span>一</span>亮子</dt><dd>一方白幕，也是影偶唯一的世界。灯从背后照来，纸与皮才成为山河。</dd></div>
+            <div class="reveal"><dt><span>二</span>灯油</dt><dd>记忆的燃料。故事被演完，灯就更亮；故事被忘记，影就变薄。</dd></div>
+            <div class="reveal"><dt><span>三</span>影卷</dt><dd>可被重演的影戏谱本，记录角色、行头、唱词与调度。</dd></div>
+            <div class="reveal"><dt><span>四</span>守影人</dt><dd>不让灯火断掉的人，也是每一个愿意坐下来看完一场戏的人。</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section class="act act-character" id="act-03" data-chapter="角色">
+      <div class="wrap">
+        <header class="section-head compact">
+          <div class="section-tag"><span>03</span><em>角色设计</em></div>
+          <h2 class="display reveal">她不是一张图，<br><i>是一具身体。</i></h2>
+          <p class="section-deck reveal">头茬、云肩、水袖、裙门、翘头靴。每一件都能拆下、替换、重新缀结。角色的性格不只写在脸上，也写在轮廓、重心和行走时的摆动里。</p>
+        </header>
+
+        <div class="character-layout">
+          <div class="character-notes">
+            <article class="reveal"><span>形 / SILHOUETTE</span><h3>侧面先成立</h3><p>影偶没有正面。所有情绪都必须在一个侧影里被读懂：她在看、在等、在退，还是在起势。</p></article>
+            <article class="reveal"><span>色 / PALETTE</span><h3>灯下仍要清楚</h3><p>朱红、泥金、米白作为基色，让角色在暖光、逆光与暗场里都保持层次。</p></article>
+            <article class="reveal"><span>纹 / CUTOUT</span><h3>刀口就是花纹</h3><p>不靠密集印花，而靠大型镂空、留白与层叠纸片建立节奏。虚处也属于图案。</p></article>
+            <article class="reveal"><span>骨 / JOINTS</span><h3>关节决定性格</h3><p>九处关节与两根签子，决定她如何点头、抬袖、转身与收势。</p></article>
+          </div>
+
+          <figure class="character-stage reveal">
+            <div class="character-sun" aria-hidden="true"></div>
+            <div class="character-ring" aria-hidden="true"></div>
+            <img class="character-figure" src="assets/character.png" alt="朱红唐风戏曲女性影偶，侧身抬手，身着云肩、水袖与六幅裙">
+            <span class="callout callout-head">头茬</span>
+            <span class="callout callout-collar">云肩</span>
+            <span class="callout callout-sleeve">水袖</span>
+            <span class="callout callout-skirt">裙门</span>
+            <span class="callout callout-boot">翘头靴</span>
+            <figcaption><span>FIGURE 01</span> 朱衣 · 初始影偶</figcaption>
+          </figure>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="act act-wardrobe" id="act-04" data-chapter="行头">
+      <div class="wrap">
+        <header class="section-head wardrobe-head">
+          <div class="section-tag"><span>04</span><em>行头设计</em></div>
+          <h2 class="display reveal">旧衣是起点，<br><i>新装是回声。</i></h2>
+          <p class="section-deck reveal">开局时，她只有戏箱最底层的朱红旧衣。随着演出被完成、掌声累积，新的头面与行头才会解锁。它们不是换色皮肤：冠、肩、腰、裙、靴的剪裁都被重新设计。</p>
+        </header>
+
+        <div class="wardrobe-stage">
+          <article class="look look-starter reveal">
+            <header><span>START / 初始行头</span><h3>朱衣旧制</h3></header>
+            <div class="look-image"><img src="assets/character.png" alt="初始朱红戏衣造型"></div>
+            <ul class="look-chips"><li>交领右衽</li><li>云肩</li><li>六幅裙</li><li>水袖</li></ul>
+            <p class="look-note">戏箱最底层的一身旧衣。红得温厚，纹样克制，是她第一次登台时的样子。</p>
+          </article>
+
+          <div class="look-gate reveal" aria-label="演出完成后解锁新行头">
+            <span class="gate-line"></span>
+            <span class="gate-dot"></span>
+            <div><small>COMPLETE THE SHOW</small><strong>完成演出<br>获得新装</strong></div>
+            <span class="gate-line"></span>
+          </div>
+
+          <article class="look look-unlock reveal">
+            <div class="unlock-seal" aria-label="已解锁"><span>已</span><span>解锁</span></div>
+            <header><span>UNLOCKED / 获得行头</span><h3>赤霞金缕</h3></header>
+            <div class="look-image"><img src="assets/unlocked-costume.jpg" alt="通关解锁的赤金武旦行头：凤翅冠、三层金云肩、织金鞶带、前后战裙与翘头靴"></div>
+            <ul class="look-chips"><li>凤翅冠</li><li>三层金云肩</li><li>织金鞶带</li><li>前后战裙</li><li>翘头战靴</li><li>长披帛</li></ul>
+            <p class="look-note">赤金压住朱砂，黑缎收紧轮廓。华丽不是堆出来的，而是由更大的色块、更准确的刀口和更长的拖尾托起来的。</p>
+          </article>
+        </div>
+
+        <div class="wardrobe-thought">
+          <div class="thought-copy reveal">
+            <span class="mini-label">DESIGN LOGIC / 设计逻辑</span>
+            <h3>换一件衣裳，<br>就是换一种身体。</h3>
+            <p>行头会改变影偶的轮廓、重量与摆动：长披帛扩大圆场的弧线，短战裙让开打更利落，高冠改变头部的惯性。玩家得到的不是一张新皮肤，而是一种新的表演手感。</p>
+          </div>
+          <div class="thought-points reveal">
+            <p><b>01</b><span>纸雕层次</span>肩部由多层金色纸片叠合，边缘保留刀口与错位。</p>
+            <p><b>02</b><span>大块留白</span>红、黑、金三种主色先立住，细节只落在需要观看的地方。</p>
+            <p><b>03</b><span>负空间</span>镂空的孔洞与深色滚边共同塑形，让服装在灯下仍然轻盈。</p>
+          </div>
+        </div>
+
+        <div class="unlock-details">
+          <figure class="reveal"><img src="assets/unlock-detail-crown.jpg" alt="凤翅冠与红珊瑚步摇细节"><figcaption><span>头面</span>凤翅冠、红珊瑚步摇与垂珠</figcaption></figure>
+          <figure class="reveal"><img src="assets/unlock-detail-shoulder.jpg" alt="三层金云肩与织金鞶带细节"><figcaption><span>肩腰</span>三层金云肩与织金鞶带</figcaption></figure>
+          <figure class="reveal"><img src="assets/unlock-detail-embroidery.jpg" alt="红黑战裙的金线纹样细节"><figcaption><span>裙门</span>红黑战裙、火焰纹与金线压边</figcaption></figure>
+          <figure class="reveal"><img src="assets/unlock-detail-boots.jpg" alt="翘头战靴与长披帛细节"><figcaption><span>足下</span>黑缎翘头靴与长披帛</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="act act-game" id="act-05" data-chapter="游戏">
+      <div class="wrap">
+        <header class="section-head">
+          <div class="section-tag"><span>05</span><em>游戏内</em></div>
+          <h2 class="display reveal">先给她穿衣，<br><i>再教她走路。</i></h2>
+          <p class="section-deck reveal">游戏由三块屏组成：扮相台负责“成为谁”，操偶台负责“怎么动”，影卷负责“被记住”。玩家不是在关卡之间赶路，而是在同一方灯下，把一具影偶慢慢演活。</p>
+        </header>
+
+        <ol class="game-loop">
+          <li class="reveal"><span>01</span><div><b>修偶</b><small>REPAIR</small></div><p>从旧戏箱里找到褪色的身体，补齐头茬、云肩、裙门与靴。</p></li>
+          <li class="reveal"><span>02</span><div><b>扮相</b><small>DRESS</small></div><p>冠、肩、腰、裙逐件穿戴。行头会改变轮廓、重心与摆动。</p></li>
+          <li class="reveal"><span>03</span><div><b>牵线</b><small>PERFORM</small></div><p>双手在上，两根签子分别牵引颈与手，关节随线而动。</p></li>
+          <li class="reveal"><span>04</span><div><b>留卷</b><small>KEEP</small></div><p>演出完成，把这一折留成可重演的影卷，等下一次灯亮。</p></li>
+        </ol>
+
+        <div class="game-ui reveal" id="gameUI">
+          <div class="game-ui-bar">
+            <span class="game-title"><i aria-hidden="true">影</i>影城 · 后台</span>
+            <div class="game-tabs" role="tablist" aria-label="游戏内界面">
+              <button class="is-active" type="button" role="tab" aria-selected="true" aria-controls="ui-dress" data-ui-tab="dress">扮相台</button>
+              <button type="button" role="tab" aria-selected="false" aria-controls="ui-stage" data-ui-tab="stage">戏台</button>
+              <button type="button" role="tab" aria-selected="false" aria-controls="ui-scroll" data-ui-tab="scroll">影卷</button>
+            </div>
+            <span class="game-oil"><i aria-hidden="true"></i><b>灯油</b> 78</span>
+          </div>
+
+          <div class="game-panel is-active" id="ui-dress" role="tabpanel" data-ui-panel="dress">
+            <div class="dress-screen">
+              <div class="doll-stage">
+                <span class="ui-label">FIGURE 01 / 当前影偶</span>
+                <span class="doll-sun" aria-hidden="true"></span>
+                <img class="ui-doll" src="assets/character.png" alt="初始朱红影偶站在扮相台上">
+                <span class="ui-joint" style="left:51%;top:17%"></span>
+                <span class="ui-joint" style="left:31%;top:43%"></span>
+                <span class="ui-joint" style="left:70%;top:44%"></span>
+                <span class="ui-joint" style="left:50%;top:50%"></span>
+                <span class="ui-joint" style="left:42%;top:78%"></span>
+                <span class="ui-joint" style="left:61%;top:78%"></span>
+                <div class="ui-plate"><b>朱衣旧制</b><span>初始行头 · 已穿戴</span></div>
+              </div>
+              <div class="dress-side">
+                <header><span>行头谱</span><b>04 / 08</b></header>
+                <div class="dress-grid">
+                  <button class="dress-item is-on" type="button"><img src="assets/unlock-detail-crown.jpg" alt=""><span>凤翅冠</span><em>已解锁</em></button>
+                  <button class="dress-item is-on" type="button"><img src="assets/unlock-detail-shoulder.jpg" alt=""><span>金云肩</span><em>已解锁</em></button>
+                  <button class="dress-item" type="button"><img src="assets/unlock-detail-embroidery.jpg" alt=""><span>织金鞶带</span><em>已解锁</em></button>
+                  <button class="dress-item" type="button"><img src="assets/unlock-detail-boots.jpg" alt=""><span>翘头战靴</span><em>已解锁</em></button>
+                </div>
+                <div class="dress-current">
+                  <div><span>当前搭配</span><b>朱衣旧制</b></div>
+                  <button class="ui-button" type="button" data-ui-go="stage">穿上 · 登台 <b aria-hidden="true">→</b></button>
+                </div>
+                <p class="dress-hint">完成一场演出后，赤霞金缕会进入衣箱。它改变的不只是颜色，还有袖、裙与靴的重量。</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="game-panel" id="ui-stage" role="tabpanel" data-ui-panel="stage" hidden>
+            <div class="result-screen">
+              <div class="result-stage">
+                <img src="assets/story-umbrella.jpg" alt="灯下的影戏舞台">
+                <div class="result-top"><span>灯下 · 借伞</span><b>PERFORMANCE</b></div>
+                <div class="result-oil"><span>灯油</span><i><b></b></i><em>78%</em></div>
+                <div class="result-hint">伞下 · 颈稳住 · 右腕再晚半拍</div>
+              </div>
+              <div class="result-card">
+                <span class="ui-label">CURTAIN / 演出结算</span>
+                <h3>满堂彩</h3>
+                <p>这一折被记住了。掌声不是分数，是灯油又添了一寸。</p>
+                <div class="result-bars" aria-label="演出评价">
+                  <div><span>重心</span><i><b style="--v:92%"></b></i><em>92</em></div>
+                  <div><span>气口</span><i><b style="--v:86%"></b></i><em>86</em></div>
+                  <div><span>收势</span><i><b style="--v:88%"></b></i><em>88</em></div>
+                </div>
+                <div class="result-actions">
+                  <button class="ui-button" type="button" data-ui-go="scroll">留成影卷 <b aria-hidden="true">→</b></button>
+                  <button class="ui-button ghost" type="button" data-ui-go="dress">回到扮相台</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="game-panel" id="ui-scroll" role="tabpanel" data-ui-panel="scroll" hidden>
+            <div class="scroll-screen">
+              <div class="scroll-shelf">
+                <figure><img src="assets/story-umbrella.jpg" alt="借伞"><figcaption><span>借伞</span><b>静</b></figcaption></figure>
+                <figure><img src="assets/story-herb.jpg" alt="盗草"><figcaption><span>盗草</span><b>急</b></figcaption></figure>
+                <figure><img src="assets/story-flood.jpg" alt="水漫"><figcaption><span>水漫</span><b>势</b></figcaption></figure>
+              </div>
+              <aside class="scroll-note">
+                <span class="ui-label">SCROLL / 影卷</span>
+                <h3>三折戏，<br>不必按次序。</h3>
+                <p>灯亮哪一折，就先演哪一折。玩家记住的不是通关路线，而是每一种身段该在什么时候停。</p>
+                <ul><li>已点亮 <b>03</b></li><li>可重演 <b>03</b></li><li>新卷 · 待题名</li></ul>
+                <button class="ui-button ghost" type="button" data-ui-go="dress">再扮一次 <b aria-hidden="true">→</b></button>
+              </aside>
+            </div>
+          </div>
+
+          <div class="game-ui-foot"><span>IN-GAME INTERFACE / 游戏内界面</span><span>扮相 · 牵线 · 留卷</span></div>
+        </div>
+
+        <p class="game-note reveal">我们想让“非遗”先变成一件可以玩的事：先觉得这身行头好看，再发现它为什么这样裁；先觉得牵线好玩，再明白一个关节为什么必须留半厘松。</p>
+      </div>
+    </section>
+
+    <section class="act act-dark act-stage" id="act-06" data-chapter="牵线">
+      <div class="wrap wrap-wide">
+        <header class="section-head stage-head">
+          <div class="section-tag light"><span>06</span><em>静态展示</em></div>
+          <h2 class="display reveal light">两根线，<br><i>把她定在灯下。</i></h2>
+          <p class="section-deck light reveal">不再实时模拟关节动作，改为完整角色的定格展示。主签落在颈部，手签提住右腕，保留皮影戏被观看、被牵引的关系。</p>
+        </header>
+
+        <div class="string-experience static-experience reveal">
+          <div class="stage-toolbar static-toolbar">
+            <span class="static-label">STATIC FIGURE / 定格展示</span>
+            <p class="stage-status">主签 · 颈　/　手签 · 右腕</p>
+          </div>
+
+          <div class="string-stage static-stage" id="staticStage" aria-label="静态皮影角色展示：两根签线分别落在颈部和右腕">
+            <div class="stage-curtain left" aria-hidden="true"></div>
+            <div class="stage-curtain right" aria-hidden="true"></div>
+            <div class="light-screen" aria-hidden="true"></div>
+            <div class="screen-scene" aria-hidden="true"><img src="assets/story-umbrella.jpg" alt=""></div>
+            <div class="stage-dust" aria-hidden="true"></div>
+
+            <div class="stage-rig" aria-hidden="true"><span>双手在上 · 两根签</span><i></i><i></i></div>
+
+            <figure class="static-puppet">
+              <img src="assets/character.png" alt="白蛇影偶定妆静态像">
+              <svg class="static-cords" viewBox="0 0 900 1276" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M 350 -210 C 350 80 414 285 423 505"/>
+                <path d="M 650 -210 C 650 120 754 420 797 657"/>
+                <circle cx="423" cy="505" r="5"/>
+                <circle cx="797" cy="657" r="5"/>
+              </svg>
+              <span class="static-rod handle-left" aria-hidden="true"><b>主签</b></span>
+              <span class="static-rod handle-right" aria-hidden="true"><b>手签</b></span>
+            </figure>
+
+            <div class="stage-badge"><span>定妆</span><small>STATIC PORTRAIT</small></div>
+          </div>
+
+          <div class="stage-readout static-readout">
+            <div class="readout-copy"><span class="mini-label">STILL FRAME / 定格</span><p>角色以完整皮影姿态停在灯下。两根签线不参与交互，只保留“被牵引”的观看关系。</p></div>
+            <div class="static-facts" aria-label="静态展示信息">
+              <span><b>10</b>分件</span>
+              <span><b>02</b>签线</span>
+              <span><b>01</b>定格</span>
+            </div>
+            <a class="button button-line light" href="character.html">人物静态展示 <b aria-hidden="true">↗</b></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="act act-story" id="act-07" data-chapter="舞台">
+      <div class="wrap">
+        <header class="section-head story-head">
+          <div class="section-tag"><span>07</span><em>故事与舞台</em></div>
+          <h2 class="display reveal">一方亮子，<br><i>装得下山河。</i></h2>
+          <p class="section-deck reveal">《白蛇传》是第一出完整影卷。它不是用来复刻剧情的背景板，而是三种表演尺度的容器：借伞的静、盗仙草的急、水漫金山的势。玩家在熟悉的传说里，学习如何控制一具影偶。</p>
+        </header>
+
+        <div class="story-layout">
+          <figure class="story-main reveal">
+            <img src="assets/story-umbrella.jpg" alt="断桥借伞：白蛇与许仙在桥上撑伞相望">
+            <figcaption><span>借伞 / 静</span><p>眼神、停顿与一把伞的距离。</p></figcaption>
+          </figure>
+          <div class="story-side">
+            <figure class="reveal"><img src="assets/story-herb.jpg" alt="远山与塔的舞台景片"><figcaption><span>盗草 / 急</span><p>步法、转身与一口气的急切。</p></figcaption></figure>
+            <figure class="reveal"><img src="assets/story-flood.jpg" alt="桥、水与荷花的舞台景片"><figcaption><span>水漫 / 势</span><p>水袖、群场与整台亮子的调度。</p></figcaption></figure>
+          </div>
+        </div>
+
+        <div class="movement-band">
+          <div class="movement-copy reveal"><span class="mini-label">MOVEMENT / 身段</span><h3>戏不在台词里，<br>在身体的重心里。</h3></div>
+          <ol class="movement-list">
+            <li class="reveal"><span>01</span><b>亮相</b><p>在一瞬间定住，让台下看清她是谁。</p></li>
+            <li class="reveal"><span>02</span><b>圆场</b><p>用步伐画出空间，让一方小台变成一座城。</p></li>
+            <li class="reveal"><span>03</span><b>水袖</b><p>让布料延迟半拍，情绪就有了余韵。</p></li>
+            <li class="reveal"><span>04</span><b>开打</b><p>快、准、收得住，才不会散成一团。</p></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="act act-tech" id="act-08" data-chapter="技术">
+      <div class="wrap">
+        <header class="section-head tech-head">
+          <div class="section-tag"><span>08</span><em>技术实现</em></div>
+          <h2 class="display reveal">让手工感，<br><i>可以被运行。</i></h2>
+          <p class="section-deck reveal">所有“纸与灯”的质感，都建立在一套可拆解、可维护的资产结构上。技术不抢戏，它只负责让传统不掉帧。</p>
+        </header>
+
+        <div class="tech-layout">
+          <div class="blueprint reveal">
+            <div class="blueprint-head"><span>SYSTEM / PIPELINE</span><em>Unity 2D</em></div>
+            <svg viewBox="0 0 900 560" role="img" aria-label="从分件、骨骼、动画、舞台到影卷存档的技术流程图">
+              <defs>
+                <linearGradient id="flowGold" x1="0" x2="1"><stop offset="0" stop-color="#8c6333"/><stop offset=".5" stop-color="#d5b47a"/><stop offset="1" stop-color="#8c6333"/></linearGradient>
+              </defs>
+              <g class="bp-grid">
+                <path d="M0 80H900M0 160H900M0 240H900M0 320H900M0 400H900M0 480H900" />
+                <path d="M120 0V560M240 0V560M360 0V560M480 0V560M600 0V560M720 0V560M840 0V560" />
+              </g>
+              <g class="bp-line" fill="none" stroke="url(#flowGold)" stroke-width="2">
+                <path d="M170 280H260M350 280H440M530 280H620M710 280H800"/>
+              </g>
+              <g class="bp-node">
+                <circle cx="110" cy="280" r="55"/><circle cx="290" cy="280" r="55"/><circle cx="470" cy="280" r="55"/><circle cx="650" cy="280" r="55"/><circle cx="830" cy="280" r="55"/>
+                <path d="M90 280l20-26 20 26-20 26z"/><path d="M275 258v44M290 248v64M305 258v44"/><path d="M450 300c15-42 25-42 40 0M450 300h40"/><path d="M630 260h40v40h-40z M650 260v40"/><path d="M810 280h40M810 270h40M810 290h40"/>
+              </g>
+              <g class="bp-label">
+                <text x="110" y="376">分件</text><text x="290" y="376">关节</text><text x="470" y="376">动画</text><text x="650" y="376">舞台</text><text x="830" y="376">影卷</text>
+                <text x="110" y="402">LAYERS</text><text x="290" y="402">PIVOTS</text><text x="470" y="402">ANIMATOR</text><text x="650" y="402">TIMELINE</text><text x="830" y="402">SAVE</text>
+                <text x="110" y="188">10 PIECES</text><text x="290" y="188">09 JOINTS</text><text x="470" y="188">13 FRAMES</text><text x="650" y="188">02 CORDS</text><text x="830" y="188">01 SCROLL</text>
+              </g>
+              <g class="bp-ticks" stroke="#b78a4c" opacity=".5">
+                <path d="M110 210v30M290 210v30M470 210v30M650 210v30M830 210v30"/>
+                <path d="M110 326v30M290 326v30M470 326v30M650 326v30M830 326v30"/>
+              </g>
+            </svg>
+            <div class="blueprint-foot"><span>ASSET → RIG → MOTION → STAGE → MEMORY</span><span>60 FPS TARGET</span></div>
+          </div>
+
+          <div class="tech-notes">
+            <article class="reveal"><span>01 / LAYERS</span><h3>分层资产</h3><p>头、身、裙、领、双手与双腿独立拆件，统一画布与 pivot，保证每次换装都能精确回到身体。</p></article>
+            <article class="reveal"><span>02 / ROTATION</span><h3>关节旋转</h3><p>九处节点各自设置旋转轴心。动作不是逐帧画出来的，而是由关节、惯性与线绳一起生成。</p></article>
+            <article class="reveal"><span>03 / STAGE TIME</span><h3>舞台时间</h3><p>Animator 负责循环身段，Timeline 负责过场、镜头与灯油变化，让一段表演有起承转合。</p></article>
+            <article class="reveal"><span>04 / MATERIAL</span><h3>纸与光</h3><p>纸纹、暖光、暗角与空气尘点共同构成材质。影偶保留轻微的透光与不平整，才像被真正的手摸过。</p></article>
+          </div>
+        </div>
+
+        <div class="tech-metrics">
+          <div class="reveal"><b>10</b><span>可替换分件</span></div>
+          <div class="reveal"><b>09</b><span>关键关节</span></div>
+          <div class="reveal"><b>13</b><span>行走循环帧</span></div>
+          <div class="reveal"><b>02</b><span>操控签线</span></div>
+          <div class="reveal"><b>01</b><span>可重演影卷</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="act act-final" id="act-09" data-chapter="传承">
+      <div class="final-backdrop" aria-hidden="true"><img src="assets/key-art.jpg" alt=""></div>
+      <div class="final-shade" aria-hidden="true"></div>
+      <div class="wrap final-wrap">
+        <div class="section-tag light"><span>09</span><em>传承与结语</em></div>
+        <h2 class="display final-title reveal light">灯不灭，<br><i>戏就还在。</i></h2>
+        <p class="final-lead reveal">我们并不认为一款游戏可以替代一门手艺。它更像一张新的戏票：让更多人先坐进台下，再走到灯后，最后愿意亲手摸一次皮、剪一刀、牵一次线。</p>
+
+        <div class="legacy-grid">
+          <article class="reveal"><span>01</span><h3>数字影卷</h3><p>把角色、行头、唱词与调度保存在可重演的影卷里，让一场戏不因灯灭而消失。</p></article>
+          <article class="reveal"><span>02</span><h3>非遗工坊</h3><p>把制皮、画稿、镂刻、敷彩与缀结转成可体验的工序，让工艺知识成为可以动手的记忆。</p></article>
+          <article class="reveal"><span>03</span><h3>校园戏台</h3><p>用低门槛的搭配与牵线，让传统戏曲进入课堂与家庭，让下一双手先觉得好玩。</p></article>
+        </div>
+
+        <div class="final-quote reveal">
+          <p>让传统不是被保存，<br>而是被继续使用。</p>
+          <div class="final-seal" aria-label="守影人"><span>守</span><span>影</span></div>
+        </div>
+      </div>
+
+      <footer class="site-footer">
+        <div class="footer-brand"><span class="brand-mark small" aria-hidden="true">镂</span><div><strong>吹影镂尘</strong><small>A PAPER-SHADOW OPERA</small></div></div>
+        <p>剪纸 · 皮影 · 戏曲身段 · 交互叙事</p>
+        <a href="#cover">回到灯下 ↑</a>
+      </footer>
+    </section>
+  </main>
+
+  <script src="story.js"></script>
+</body>
+</html>

@@ -1,0 +1,789 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Game Asset Factory｜把一句话做成能进 UE 的资产</title>
+  <meta name="description" content="一个以真实操作、真实失败和恢复过程讲述的 AI 游戏资产生成工作台作品集：可行性判断、项目场景隔离、A/B 选图、模型检查、故障恢复与工程底座。">
+  <meta name="theme-color" content="#07100e">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%2307100e'/%3E%3Cpath d='M16 40 32 13l16 27-16 11z' fill='%236cf0c2'/%3E%3Ccircle cx='32' cy='35' r='6' fill='%2307100e'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="story.css">
+</head>
+<body>
+  <a class="skip-link" href="#story-main">跳到作品正文</a>
+  <div class="reading-progress" aria-hidden="true"><i id="readingProgress"></i></div>
+
+  <header class="site-nav" id="siteNav">
+    <a class="brand" href="#top" aria-label="回到作品开头">
+      <span class="brand-mark" aria-hidden="true"><i></i></span>
+      <span class="brand-text">ASSET <b>/</b> STORY</span>
+    </a>
+    <nav class="chapter-nav" aria-label="作品章节">
+      <a href="#act-01" data-label="先判断">01</a>
+      <a href="#act-02" data-label="操作路径">02</a>
+      <a href="#act-03" data-label="A/B 选图">03</a>
+      <a href="#act-04" data-label="模型检查">04</a>
+      <a href="#act-05" data-label="真实故障">05</a>
+      <a href="#act-06" data-label="继续建模">06</a>
+      <a href="#act-07" data-label="工程底座">07</a>
+      <a href="#act-08" data-label="能力边界">08</a>
+    </nav>
+    <div class="nav-actions">
+      <span class="nav-state" id="navState">COVER</span>
+      <button class="play-button" id="playStory" type="button" aria-label="自动播放整个作品">
+        <span class="play-icon" aria-hidden="true">
+          <svg viewBox="0 0 20 20"><path class="icon-play" d="M7 4.8v10.4l8-5.2z"></path><path class="icon-pause" d="M6 4.5h3v11H6zm5 0h3v11h-3z"></path></svg>
+        </span>
+        <span id="playLabel">播放过程</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="story-main">
+    <section class="hero" id="top" data-scene="cover">
+      <div class="hero-aurora" aria-hidden="true"></div>
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="hero-watermark" aria-hidden="true">ASSET</div>
+
+      <div class="hero-inner">
+        <div class="hero-copy reveal">
+          <p class="kicker light"><span class="live-dot"></span>A REAL PIPELINE · TOLD THROUGH ITS FAILURES</p>
+          <h1>把一句话，<br>做成<em>能进 UE</em><br>的资产。</h1>
+          <p class="hero-lead">AI Game Asset Factory 不是一个“输入提示词，等待奇迹”的演示页。它先判断需求能不能做，再让用户在每一个扣费点前做决定，并把生成、检查、失败恢复和资产归档串成一条可复盘的生产链。</p>
+          <div class="hero-actions">
+            <a class="button button-light" href="#act-01"><span>沿着一次制作往下看</span><span aria-hidden="true">↓</span></a>
+            <a class="button button-ghost-light" href="#act-05">跳到真实故障</a>
+          </div>
+          <div class="hero-proof">
+            <span><b>2</b> 版正背设定图</span>
+            <span><b>1</b> 项目 / 1 UE 工程</span>
+            <span><b>1</b> 次真实失败</span>
+            <span><b>0</b> Mock 冒充交付</span>
+          </div>
+        </div>
+
+        <div class="hero-stage reveal" aria-label="真实北极熊资产任务的制作控制台">
+          <div class="stage-glow" aria-hidden="true"></div>
+          <div class="console-shell">
+            <div class="console-topbar">
+              <span><i class="live-dot"></i>ASSET CONSOLE</span>
+              <span class="mono">JOB / 3C93FC82</span>
+            </div>
+            <div class="console-body">
+              <div class="console-rail" aria-hidden="true">
+                <div class="rail-step is-done"><i></i><span>INPUT</span></div>
+                <div class="rail-step is-active"><i></i><span>REVIEW</span></div>
+                <div class="rail-step"><i></i><span>MODEL</span></div>
+                <div class="rail-step"><i></i><span>UE</span></div>
+              </div>
+              <div class="console-preview">
+                <img src="assets/bear_b.jpg" alt="北极熊角色版本 B 的正面与背面双联设定图" width="1600" height="1422">
+                <span class="preview-tag tag-front">FRONT</span>
+                <span class="preview-tag tag-back">BACK</span>
+                <span class="preview-corner corner-a" aria-hidden="true"></span>
+                <span class="preview-corner corner-b" aria-hidden="true"></span>
+                <div class="preview-caption">
+                  <span>VARIANT B / TURNAROUND</span>
+                  <b>2304 × 2048</b>
+                </div>
+              </div>
+              <div class="console-inspector">
+                <span class="micro-label">CURRENT CHECKPOINT</span>
+                <strong>IMAGE REVIEW</strong>
+                <div class="inspector-row"><span>Variant</span><b class="lime">B</b></div>
+                <div class="inspector-row"><span>Views</span><b>2 / 2</b></div>
+                <div class="inspector-row"><span>Model</span><b class="dim">未启动</b></div>
+                <div class="inspector-row"><span>UE</span><b class="dim">未导入</b></div>
+                <span class="inspector-note">真实生成物。核心故障故事从这里开始。</span>
+              </div>
+            </div>
+            <div class="console-foot">
+              <span><i class="status-dot done"></i> image / succeeded</span>
+              <span><i class="status-dot wait"></i> model / failed once</span>
+              <span class="mono">REUSABLE ARTIFACTS: 4</span>
+            </div>
+          </div>
+          <div class="stage-note note-left"><b>01</b><span>先看两版</span></div>
+          <div class="stage-note note-right"><b>02</b><span>再决定是否扣费</span></div>
+        </div>
+      </div>
+
+      <div class="scroll-cue" aria-hidden="true"><span>SCROLL TO PRODUCE</span><i></i></div>
+    </section>
+
+    <section class="manifesto" id="manifesto" data-scene="thesis">
+      <div class="section-inner">
+        <div class="manifesto-head reveal">
+          <p class="kicker">THE THESIS / 这个作品的真正命题</p>
+          <h2>生成不是瓶颈。<br><span>决定何时停止，才是。</span></h2>
+        </div>
+        <div class="manifesto-grid">
+          <div class="manifesto-copy reveal">
+            <p class="lead-serif">“一句话生成游戏资产”听起来像一个生成问题。真正做起来，它是一个<strong>边界、计费、状态与责任</strong>的问题。</p>
+            <p>用户可能要求一个会爬墙、每只脚都要贴地、在阳光下变化颜色的蜈蚣；也可能只是要一只带红围巾的北极熊。两者都不该被同一句“好的，正在生成”带过。</p>
+            <p>所以这个项目把分析、确认、图片、模型、绑骨、UE 导入拆成显式阶段。每一步都留下事实、产物和可恢复现场。页面里的互动不是装饰，它们对应真实的业务闸门。</p>
+          </div>
+          <div class="thesis-stack reveal">
+            <article class="thesis-card">
+              <div class="thesis-top"><span>01</span><small>BEFORE SPENDING</small></div>
+              <h3>先判断，再生成。</h3>
+              <p>可行性分析只读：意图解析、能力矩阵、RAG 与规则校验。分析阶段不调用生图、3D、绑骨或 UE。</p>
+            </article>
+            <article class="thesis-card">
+              <div class="thesis-top"><span>02</span><small>HUMAN GATE</small></div>
+              <h3>每个昂贵动作之间，有人。</h3>
+              <p>A/B 设定图之后必须选版本；模型之后再次确认是否绑骨。用户选择“不建模”时，Tripo 不会被调用。</p>
+            </article>
+            <article class="thesis-card">
+              <div class="thesis-top"><span>03</span><small>RECOVERABLE</small></div>
+              <h3>失败不抹掉已完成。</h3>
+              <p>网络故障恢复只新增 model attempt，复用已有图片、版本选择与产物哈希，不重跑已经成功的图片阶段。</p>
+            </article>
+          </div>
+        </div>
+        <div class="principle-strip reveal" aria-label="项目原则">
+          <div><span>ANALYSIS</span><b>0 paid calls</b></div>
+          <div><span>DELIVERY</span><b>静态模型 / 绑骨模型</b></div>
+          <div><span>TRUTH</span><b>PostgreSQL + MinIO</b></div>
+          <div><span>ENGINE</span><b>UE concurrency = 1</b></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="act act-dark" id="act-01" data-scene="act-01">
+      <div class="act-inner">
+        <header class="act-head reveal">
+          <span class="act-number">01</span>
+          <div class="act-heading">
+            <p class="kicker light">CAPABILITY GATE / 先判断</p>
+            <h2>先拒绝，<br><em>再生成。</em></h2>
+          </div>
+          <p class="act-summary">不是所有“一句话”都应该进入生产。这个环节把用户的想象拆成可验证能力，先告诉用户能做到什么，以及为什么另一些不能承诺。</p>
+        </header>
+
+        <div class="feasibility-grid reveal">
+          <article class="prompt-card">
+            <div class="card-topline"><span>USER PROMPT</span><span class="mono">MULTI-INTENT / CREATURE</span></div>
+            <p class="prompt-quote">“做一只会爬墙的蜈蚣。颜色是深蓝渐变，在太阳下会产生颜色变化；爬墙时所有脚都在动，身体要有真实的贴墙动态。”</p>
+            <div class="prompt-meta">
+              <span>subject: 蜈蚣</span>
+              <span>form: multi-leg</span>
+              <span>actions: climb / gait</span>
+              <span>material: light-reactive</span>
+            </div>
+            <p class="interaction-hint">点击下面能力标签，看判断如何变化。</p>
+            <div class="feature-chips" id="featureChips">
+              <button type="button" class="feature-chip support-yes is-on" data-support="yes" aria-pressed="true"><i>✓</i><span>完整动物主体</span><small>可生成</small></button>
+              <button type="button" class="feature-chip support-yes is-on" data-support="yes" aria-pressed="true"><i>✓</i><span>静态 3D 模型</span><small>可交付</small></button>
+              <button type="button" class="feature-chip support-yes is-on" data-support="yes" aria-pressed="true"><i>✓</i><span>PBR 基础贴图</span><small>可交付</small></button>
+              <button type="button" class="feature-chip support-no is-on" data-support="no" aria-pressed="true"><i>×</i><span>多足自动绑骨</span><small>无骨架规范</small></button>
+              <button type="button" class="feature-chip support-no is-on" data-support="no" aria-pressed="true"><i>×</i><span>爬墙贴地步态</span><small>无接触求解</small></button>
+              <button type="button" class="feature-chip support-no is-on" data-support="no" aria-pressed="true"><i>×</i><span>所有脚同步运动</span><small>无每足 IK</small></button>
+              <button type="button" class="feature-chip support-no is-on" data-support="no" aria-pressed="true"><i>×</i><span>随光变化的虹彩材质</span><small>无验证实现</small></button>
+              <button type="button" class="feature-chip support-no is-on" data-support="no" aria-pressed="true"><i>×</i><span>武术动作 / 可玩玩法</span><small>交付档未实现</small></button>
+            </div>
+            <div class="prompt-foot">
+              <span><b>ANALYSIS</b> image / model / rig / UE calls</span>
+              <strong>0 / 0 / 0 / 0</strong>
+            </div>
+          </article>
+
+          <aside class="verdict-card" aria-live="polite">
+            <div class="verdict-top">
+              <span class="micro-label">FEASIBILITY REPORT</span>
+              <span class="report-seal">NO SPEND YET</span>
+            </div>
+            <div class="verdict-status" id="verdictStatus">PARTIAL_SUPPORT</div>
+            <h3 id="verdictTitle">能交付静态资产，不能承诺活体步态。</h3>
+            <p id="verdictReason">当前请求包含可生成主体与不可承诺的多足运动能力。系统不会把“能建模”说成“能做爬墙动画”。</p>
+            <div class="verdict-columns">
+              <div>
+                <span class="column-label positive">可以交付</span>
+                <ul class="check-list">
+                  <li>A/B 正背设定图</li>
+                  <li>静态 3D 模型 + PBR</li>
+                  <li>放入当前场景 Level</li>
+                </ul>
+              </div>
+              <div>
+                <span class="column-label negative">不能承诺</span>
+                <ul class="check-list cross-list" id="blockedList">
+                  <li>多足骨架与每足 IK</li>
+                  <li>爬墙接触与身体力学</li>
+                  <li>动态虹彩材质与玩法</li>
+                </ul>
+              </div>
+            </div>
+            <div class="verdict-bottom">
+              <span id="featureCount">5 项能力缺口</span>
+              <b>必须显式确认降级，才创建任务</b>
+            </div>
+          </aside>
+        </div>
+
+        <div class="analysis-flow reveal">
+          <div class="flow-node"><small>01</small><b>意图解析</b><span>主体 / 形态 / 动作</span></div>
+          <i class="flow-arrow" aria-hidden="true">→</i>
+          <div class="flow-node"><small>02</small><b>Spec 校验</b><span>结构性约束</span></div>
+          <i class="flow-arrow" aria-hidden="true">→</i>
+          <div class="flow-node"><small>03</small><b>能力矩阵</b><span>可用 / 降级 / 不可用</span></div>
+          <i class="flow-arrow" aria-hidden="true">→</i>
+          <div class="flow-node"><small>04</small><b>RAG + 规则</b><span>工程知识证据</span></div>
+          <i class="flow-arrow" aria-hidden="true">→</i>
+          <div class="flow-node accent"><small>05</small><b>用户确认</b><span>拒绝或接受降级</span></div>
+        </div>
+
+        <div class="act-callout reveal">
+          <span class="callout-mark">!</span>
+          <div><strong>为什么先停？</strong><p>如果用户只想要两张概念图，后面的模型、绑骨和 UE 都不应该发生。先分析可以避免用 token、积分和等待去验证一个本来就不该开始的任务。</p></div>
+          <span class="callout-code">ANALYSIS.DELIVERY.GATE</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="act act-paper" id="act-02" data-scene="act-02">
+      <div class="act-inner">
+        <header class="act-head reveal">
+          <span class="act-number">02</span>
+          <div class="act-heading">
+            <p class="kicker">WORKBENCH / 真实操作路径</p>
+            <h2>先选项目，<br><em>再描述资产。</em></h2>
+          </div>
+          <p class="act-summary">这里不重画一个“完美界面”。下面直接使用运行中的工作台截图拆解一条任务：项目负责隔离，场景负责归档，需求先进入可行性分析，确认后才产生图片、模型和费用。</p>
+        </header>
+
+        <div class="workflow-board reveal">
+          <figure class="workflow-shot">
+            <div class="workflow-shot-head"><span>01 / PROJECT → SCENE → TASK</span><span class="mono">REAL WORKBENCH · 2026.11.17</span></div>
+            <div class="workflow-shot-image">
+              <img src="assets/workbench-project.jpg" alt="AI 游戏资产工作台真实界面：左侧项目与场景，中间任务输入与状态，右侧产出预览" width="1677" height="1414">
+            </div>
+            <figcaption><b>运行中的资产工作台</b><span>截图来自“动漫世界闯关 / 金币”的真实任务。项目、场景、任务、输入和预览处在同一个工作面，不靠聊天记录追溯资产归属。</span></figcaption>
+          </figure>
+          <aside class="workflow-notes">
+            <span class="micro-label">WHAT THE SCREEN ENCODES</span>
+            <h3>界面先回答三个问题。</h3>
+            <ol class="workflow-steps">
+              <li><span>01</span><div><b>现在属于谁？</b><p>项目名与场景名固定在顶部。新建任务不会脱离当前项目，也不会写进另一个场景。</p></div></li>
+              <li><span>02</span><div><b>这次要交付什么？</b><p>用户用资产描述、交付档和当前余额约束任务，而不是让系统猜“角色、动物还是道具”。</p></div></li>
+              <li><span>03</span><div><b>什么时候应该停？</b><p>图片、模型、绑骨都各有一次人工确认。界面不会因为上一步成功就自动扣掉下一笔费用。</p></div></li>
+            </ol>
+            <div class="workflow-note"><span>OWNERSHIP CONTRACT</span><p>项目是隔离单元，场景是任务与产物的归档边界。用户不需要手动整理文件名来区分两个场景。</p></div>
+          </aside>
+        </div>
+
+        <div class="workflow-evidence reveal">
+          <figure class="workflow-shot">
+            <div class="workflow-shot-head"><span>02 / FEASIBILITY REPORT</span><span class="mono">REPORT f15ece4d</span></div>
+            <div class="workflow-shot-image">
+              <img src="assets/workbench-analysis.jpg" alt="真实可行性报告界面：能力矩阵、RAG 依据、预计成本与通过并创建任务" width="1657" height="1385">
+            </div>
+            <figcaption><b>成本与能力先于创建任务</b><span>能力矩阵列出可交付项和缺口；RAG 给出 5 条依据；预计成本 130 积分。用户确认之后才创建生产任务。</span></figcaption>
+          </figure>
+          <div class="workflow-evidence-copy">
+            <span class="micro-label">DECIDE BEFORE SPEND</span>
+            <h3>可行性分析不是一句“可以做”。</h3>
+            <p>它把需求拆成主体、形态、材质、动作和引擎支持，再逐项映射到能力矩阵。无法承诺的部分会留成缺口，不会被悄悄包装成已实现。</p>
+            <div class="evidence-facts">
+              <div><span>RAG</span><b>5 条依据</b></div>
+              <div><span>COST</span><b>130 积分</b></div>
+              <div><span>GENERATION</span><b>0 次调用</b></div>
+            </div>
+            <p class="evidence-caption">分析阶段只读：生图、3D、绑骨和引擎导入都还没有发生。项目、场景和预计成本先落到同一份报告里，用户再决定是否创建任务。</p>
+          </div>
+        </div>
+
+        <div class="scope-proof-grid reveal">
+          <article><span>项目边界</span><b>场景各自归档</b><p>同一项目下的场景可以并列存在；每条任务、每次失败和每份产物都保留自己的归属。</p></article>
+          <article><span>任务边界</span><b>一个场景一条生产线</b><p>需求、报告、图片、模型和恢复记录沿同一个任务串联，刷新页面也不会丢失现场。</p></article>
+          <article><span>费用边界</span><b>确认后才继续</b><p>先看可行性和成本，再看 A/B 图，再看模型；每个扣费点都停在用户面前。</p></article>
+        </div>
+
+        <div class="act-callout paper-callout reveal">
+          <span class="callout-mark">→</span>
+          <div><strong>“新增场景”不是新建一套系统。</strong><p>它只增加一个新的场景入口和归档域。之后在这里生成的图片、模型、失败记录都归到该场景，不会与另一个场景混在一起。</p></div>
+          <span class="callout-code">project → scene → job</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="act act-dark" id="act-03" data-scene="act-03">
+      <div class="act-inner">
+        <header class="act-head reveal">
+          <span class="act-number">03</span>
+          <div class="act-heading">
+            <p class="kicker light">IMAGE REVIEW / 人工闸门</p>
+            <h2>先出图，<br><em>然后停住。</em></h2>
+          </div>
+          <p class="act-summary">每个资产先生成 A/B 两版左右双联图：左边正面，右边背面。用户选完版本，系统才允许进入模型阶段；不选就不扣下一笔钱。</p>
+        </header>
+
+        <div class="review-stage reveal">
+          <div class="review-cards" role="group" aria-label="选择设定图版本">
+            <button type="button" class="review-card" data-variant="A" aria-pressed="false">
+              <span class="variant-ribbon">VERSION A</span>
+              <span class="variant-image"><img src="assets/bear_a.jpg" alt="北极熊版本 A 正面与背面双联设定图" width="1600" height="1422"></span>
+              <span class="variant-meta"><b>Variant A</b><small>正背双联 / 全身构图</small><i>选择 A</i></span>
+            </button>
+            <button type="button" class="review-card is-selected" data-variant="B" aria-pressed="true">
+              <span class="variant-ribbon">VERSION B</span>
+              <span class="variant-image"><img src="assets/bear_b.jpg" alt="北极熊版本 B 正面与背面双联设定图" width="1600" height="1422"></span>
+              <span class="variant-meta"><b>Variant B</b><small>正背双联 / 全身构图</small><i>已选择</i></span>
+            </button>
+          </div>
+
+          <div class="review-console">
+            <div class="review-status-block">
+              <span class="micro-label">CHECKPOINT / IMAGE</span>
+              <div class="review-status-line"><span class="status-orb"></span><b>AWAITING_REVIEW</b></div>
+              <p>两版都完整展示正面与背面。没有中央长条裁图，左右各是一张全身视图。</p>
+            </div>
+            <div class="review-choice-block">
+              <span>当前选择</span>
+              <strong>VARIANT <b id="selectedVariant">B</b></strong>
+              <small id="reviewHint">继续后将复用这张双联图裁出给 Tripo 的正面 / 背面参考。</small>
+            </div>
+            <div class="review-actions">
+              <button type="button" class="button button-ghost-dark" data-image-action="stop">只保留图片，不建模</button>
+              <button type="button" class="button button-lime" data-image-action="build">继续 3D 建模 <span aria-hidden="true">→</span></button>
+            </div>
+          </div>
+          <div class="review-feedback" id="imageReviewFeedback" role="status" aria-live="polite">
+            <span class="feedback-dot"></span>
+            <p><b>等待你的决定。</b> 图片阶段成功，但模型队列尚未启动。</p>
+            <span class="mono">COST IMPACT / 0</span>
+          </div>
+        </div>
+
+        <figure class="workflow-shot review-evidence reveal">
+          <div class="workflow-shot-head"><span>03 / IMAGE REVIEW IN THE REAL UI</span><span class="mono">AWAITING_REVIEW</span></div>
+          <div class="workflow-shot-image">
+            <img src="assets/workbench-review.jpg" alt="真实 A/B 审图界面：北极熊两个版本的正背面双联图与人工确认区" width="1800" height="1246">
+          </div>
+          <figcaption><b>两版同时在同一个检查点里</b><span>真实界面保留版本 A、版本 B 和完整任务上下文。用户选定后才有下一个动作；不满意时回到输入区重新描述，而不是被自动带进建模。</span></figcaption>
+        </figure>
+
+        <div class="review-details reveal">
+          <article><span>01 / A/B</span><h3>两版一起看</h3><p>生成模型同时产出两个完整版本，给用户真实的视觉选择，而不是只展示一张“抽卡结果”。</p></article>
+          <article><span>02 / 双联</span><h3>一张图，两个视图</h3><p>左侧正面、右侧背面，保持全身比例。确认后由后端安全裁成两张参考图交给 Tripo。</p></article>
+          <article><span>03 / 计费</span><h3>不点，就不花</h3><p>选择“不建模”会直接结束任务并保留图片，不投递模型队列，也不会产生 Tripo 建模费用。</p></article>
+        </div>
+
+        <div class="gate-strip reveal">
+          <span class="gate-strip-label">HUMAN DECISION REQUIRED</span>
+          <div class="gate-strip-line"><i></i><span>图片完成</span><i></i><span>选择 A / B</span><i></i><span>模型开始</span><i></i><span>模型检查点</span><i></i><span>是否绑骨</span></div>
+          <span class="gate-strip-code">NO AUTO-CONTINUE</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="act act-paper" id="act-04" data-scene="act-04">
+      <div class="act-inner">
+        <header class="act-head reveal">
+          <span class="act-number">04</span>
+          <div class="act-heading">
+            <p class="kicker">DELIVERY MODE / 交付档位</p>
+            <h2>模型成功，<br><em>也不等于交付完成。</em></h2>
+          </div>
+          <p class="act-summary">模型在远景全身视角里检查轮廓、颜色和 PBR 材质，再由用户选择静态交付、自动绑骨或停在这里。绑骨预检免费；只有确认可绑之后，才发起付费绑骨。</p>
+        </header>
+
+        <div class="model-board reveal">
+          <div class="model-visual">
+            <article class="artifact-stage">
+              <div class="artifact-stage-head"><span class="micro-label light">ASSET INSPECTION</span><span class="mono">REAL ARTIFACT</span></div>
+              <div class="artifact-image">
+                <img src="assets/workbench-model.jpg" alt="北极熊 3D 模型的远景全身检查界面，带 PBR 颜色与浅蓝色靴子" width="1800" height="1269">
+                <span class="artifact-stamp">LIVE VIEW / FAR</span>
+                <span class="artifact-bracket bracket-tl"></span><span class="artifact-bracket bracket-br"></span>
+              </div>
+              <div class="artifact-foot">
+                <div><span>SOURCE</span><b>Tripo → FBX</b></div>
+                <div><span>VIEW</span><b>远景 / 全身</b></div>
+                <div><span>MATERIAL</span><b>PBR 彩色贴图</b></div>
+                <div><span>CHECKPOINT</span><b class="warn">等待确认</b></div>
+              </div>
+            </article>
+          </div>
+
+          <aside class="delivery-panel">
+            <span class="micro-label">WHAT DO YOU WANT TO DELIVER?</span>
+            <h3>模型检查点</h3>
+            <p class="delivery-intro">图片已经确定，模型已经生成。现在的问题不是“还能不能继续”，而是“这次到底要交付到哪一步”。</p>
+            <div class="mode-switch" role="group" aria-label="交付档位">
+              <button type="button" class="mode-button is-active" data-model-mode="static"><span>01</span><b>静态模型</b><small>不绑骨</small></button>
+              <button type="button" class="mode-button" data-model-mode="rig"><span>02</span><b>自动绑骨</b><small>先预检</small></button>
+              <button type="button" class="mode-button" data-model-mode="image"><span>03</span><b>只出图</b><small>不建模</small></button>
+            </div>
+            <div class="mode-detail" id="modelModeDetail">
+              <div class="mode-detail-head"><span class="status-orb"></span><b>STATIC MODEL</b></div>
+              <p>跳过 Tripo rig，保留当前模型与 PBR 材质。适合道具、环境物件和当前不需要动画的角色。</p>
+              <ul class="check-list"><li>复用已生成模型</li><li>不再调用绑骨</li><li>交付档：static_model</li></ul>
+            </div>
+            <div class="billing-rule">
+              <span>计费规则</span>
+              <b>先看模型，再决定是否为绑骨付费。</b>
+              <p>如果免费预检返回不可绑，只允许静态交付；不把“无法绑骨”伪装成骨架成功。</p>
+            </div>
+            <div class="delivery-actions">
+              <span class="delivery-code">MODE / <b id="deliveryModeCode">STATIC</b></span>
+              <button type="button" class="mini-action" id="deliveryContinue">确认当前交付档 <span>→</span></button>
+            </div>
+            <p class="delivery-feedback" id="deliveryFeedback" role="status" aria-live="polite">等待选择。模型阶段已暂停在人工检查点。</p>
+          </aside>
+        </div>
+
+        <div class="workflow-evidence asset-proof reveal">
+          <figure class="workflow-shot">
+            <div class="workflow-shot-head"><span>SECOND CASE / PROP</span><span class="mono">REAL ARTIFACT · 3D 1</span></div>
+            <div class="workflow-shot-image">
+              <img src="assets/workbench-coin.jpg" alt="雪原金币 3D 模型的真实检查界面，金色外圈、银色内圈与北极熊浮雕" width="1158" height="1322">
+            </div>
+            <figcaption><b>金币也是同一套检查点</b><span>真实运行界面里，金属颜色、浮雕层次和正反图案都能在远景中核对。没有因为主体是道具就跳过材质检查。</span></figcaption>
+          </figure>
+          <div class="workflow-evidence-copy">
+            <span class="micro-label">SUBJECT-AWARE DELIVERY</span>
+            <h3>角色、动物、道具走同一条生产线。</h3>
+            <p>模型检查点不假设每个需求都是人形。北极熊按角色处理，金币按道具处理；用户看到的都是可旋转的 3D 产物，而不是“先长成一个人再说”。</p>
+            <div class="evidence-facts">
+              <div><span>SUBJECT</span><b>道具</b></div>
+              <div><span>MATERIAL</span><b>金属 + 浮雕</b></div>
+              <div><span>STATE</span><b>等待确认</b></div>
+            </div>
+            <p class="evidence-caption">远景截图用于整体验收：先判断体块、颜色与材质是否符合描述，再决定是否进入下一步。局部接缝、拓扑和细节问题仍留给近景人工检查，不用一张“好看远景”掩盖。</p>
+          </div>
+        </div>
+
+        <div class="quality-note reveal">
+          <div class="quality-index">Q</div>
+          <div><strong>远景验收 ≠ 忽略瑕疵</strong><p>远景用于确认轮廓、颜色和整体材质方向；复杂饰品、毛发、手指、接缝和褶皱仍需近景检查、重拓扑或人工材质。作品里不把“能生成”写成“可直接上线”。</p></div>
+          <span class="quality-code">MODEL / QC / RETOPO</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="act act-failure" id="act-05" data-scene="act-05">
+      <div class="act-inner">
+        <header class="act-head reveal">
+          <span class="act-number">05</span>
+          <div class="act-heading">
+            <p class="kicker light">REAL FAILURE / 真实故障</p>
+            <h2>失败不是<br><em>一句“重试”。</em></h2>
+          </div>
+          <p class="act-summary">北极熊任务的图片阶段已经成功，也选了 B 版。Tripo 建模却因网络中断失败。这个现场决定了恢复逻辑必须比“整单重跑”更细。</p>
+        </header>
+
+        <div class="failure-layout reveal">
+          <div class="failure-story">
+            <span class="failure-kicker">JOB 3C93FC82 · 动漫世界闯关 / 北极熊</span>
+            <div class="failure-title"><span>ERR</span><b>fetch failed</b></div>
+            <p class="failure-lede">图已经生成，版本也选了。失败发生在上游产物之后。如果系统只会把整个任务重新开始，那么已经成功且可复用的资产会被再次生成，用户会为同一段工作再付一次等待和费用。</p>
+            <div class="failure-stats">
+              <div><span>IMAGE STAGE</span><b class="ok">SUCCEEDED</b><i>attempt 1</i></div>
+              <div><span>SELECTED VARIANT</span><b>B</b><i>front + back ready</i></div>
+              <div><span>MODEL STAGE</span><b class="bad">FAILED</b><i>attempt 1</i></div>
+              <div><span>FAILURE CLASS</span><b class="warn">TRANSIENT</b><i>retryable: true</i></div>
+            </div>
+            <div class="failure-insight">
+              <span>系统真正保留下来的</span>
+              <b>4 个可复用图片产物 + 版本决策 + 任务归属</b>
+              <p>恢复不是从零开始，而是在已有事实上恢复。</p>
+            </div>
+          </div>
+
+          <div class="terminal-card">
+            <div class="terminal-bar"><span class="terminal-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="mono">media_model_attempt1.log</span><button type="button" class="copy-button" data-copy-target="failureLog">复制</button></div>
+            <pre class="terminal-body" id="failureLog"><code><span class="t-dim">[gen_model]</span> tripo-cli 执行:
+  make variant_b_front.jpg variant_b_back.jpg
+  --for game-pc --model v3.1-20260211
+
+<span class="t-ok">[image]</span>   attempt 1 / SUCCEEDED
+<span class="t-ok">[review]</span>  selected_variant = B
+<span class="t-dim">[model]</span>   attempt 1 / RUNNING
+<span class="t-bad">[model]</span>   FAILED
+
+<span class="t-bad">tripo-cli 失败：network error:
+fetch failed（exit_code=7）</span>
+
+<span class="t-dim">recovery.can_retry_model</span> = <span class="t-ok">true</span>
+<span class="t-dim">recovery.failure_class</span>  = <span class="t-warn">TRANSIENT</span>
+<span class="t-dim">recovery.reuses_image_stage</span> = <span class="t-ok">true</span></code></pre>
+            <div class="terminal-foot"><span class="mono">exit_code / 7</span><span class="mono">traceable / yes</span><span class="mono">manual retry / required</span></div>
+          </div>
+        </div>
+
+        <div class="failure-timeline reveal">
+          <div class="timeline-step is-done"><span>01</span><b>图片完成</b><small>两张正背视图</small></div>
+          <i></i>
+          <div class="timeline-step is-done"><span>02</span><b>选择 B 版</b><small>人工确认过</small></div>
+          <i></i>
+          <div class="timeline-step is-failed"><span>03</span><b>建模请求</b><small>provider call</small></div>
+          <i></i>
+          <div class="timeline-step is-failed"><span>04</span><b>网络中断</b><small>fetch failed</small></div>
+          <i></i>
+          <div class="timeline-step is-recovery"><span>05</span><b>保留现场</b><small>可恢复状态</small></div>
+        </div>
+
+        <div class="failure-lessons reveal">
+          <article><span>不是所有失败都该重试</span><p>网络抖动是 TRANSIENT，可以恢复；内容质量不合格、配置错误或用户拒绝不能靠盲目重试解决。</p></article>
+          <article><span>不是所有阶段都该重跑</span><p>恢复只新建 model attempt；image stage、版本选择和已上传产物保持原样，并进入审计记录。</p></article>
+          <article><span>不是一个按钮就自动扣费</span><p>恢复入口必须由用户明确触发。系统准备好现场，但不替用户决定再次消耗额度。</p></article>
+        </div>
+
+        <div class="failure-callout reveal">
+          <span class="mono">FAILED → RETRYING → QUEUED</span>
+          <p>状态机只增加这一条显式恢复边。FAILED 不能直接跳到 RUNNING，也不能悄悄变成 SUCCEEDED。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="act act-paper" id="act-06" data-scene="act-06">
+      <div class="act-inner">
+        <header class="act-head reveal">
+          <span class="act-number">06</span>
+          <div class="act-heading">
+            <p class="kicker">RECOVERY / 断点继续</p>
+            <h2>恢复，<br><em>从不假装重来。</em></h2>
+          </div>
+          <p class="act-summary">点击“继续 3D 建模”之后，系统先重验图片产物与归属，再复用 B 版参考图，只新增一次模型尝试，最后回到队列。</p>
+        </header>
+
+        <div class="recovery-workbench reveal">
+          <div class="recovery-machine">
+            <div class="machine-head">
+              <div><span class="micro-label light">RECOVERY REPLAY</span><h3>把失败现场接到下一次尝试</h3></div>
+              <span class="replay-badge">交互回放 · 不触发真实额度</span>
+            </div>
+            <div class="state-track" aria-label="恢复状态机">
+              <div class="state-node is-current" id="recoveryStateFailed"><span>01</span><b>FAILED</b><small>网络故障</small></div>
+              <i></i>
+              <div class="state-node" id="recoveryStateRetrying"><span>02</span><b>RETRYING</b><small>重验现场</small></div>
+              <i></i>
+              <div class="state-node" id="recoveryStateQueued"><span>03</span><b>QUEUED</b><small>等待 Worker</small></div>
+            </div>
+            <div class="recovery-counters">
+              <div><span>IMAGE ATTEMPTS</span><b>1</b><small>锁定，不再新增</small></div>
+              <div><span>SELECTED VARIANT</span><b>B</b><small>复用正背参考图</small></div>
+              <div><span>MODEL ATTEMPTS</span><b id="modelAttempts">1</b><small id="modelAttemptNote">失败一次，等待恢复</small></div>
+              <div><span>REUSED ARTIFACTS</span><b>4</b><small>不重复上传</small></div>
+            </div>
+            <div class="recovery-action-row">
+              <button type="button" class="button button-dark" id="retryModelButton">继续 3D 建模 <span aria-hidden="true">→</span></button>
+              <p id="retryStatus" role="status" aria-live="polite">准备恢复：只新增 model attempt，不重新生图。</p>
+            </div>
+            <div class="recovery-log" id="recoveryLog">
+              <span class="log-line is-ready"><i>›</i> waiting for user confirmation</span>
+              <span class="log-line"><i>›</i> artifact integrity check</span>
+              <span class="log-line"><i>›</i> reuse variant B front / back</span>
+              <span class="log-line"><i>›</i> enqueue model attempt 2</span>
+            </div>
+          </div>
+
+          <aside class="recovery-rules">
+            <span class="micro-label">RECOVERY POLICY</span>
+            <h3>什么可以恢复？</h3>
+            <div class="policy-row"><span class="policy-icon ok">✓</span><div><b>TRANSIENT</b><small>网络错误、超时、上游临时故障</small></div><em>可恢复</em></div>
+            <div class="policy-row"><span class="policy-icon no">×</span><div><b>QUALITY</b><small>内容不合格、质量问题、用户拒绝</small></div><em>不自动</em></div>
+            <div class="policy-row"><span class="policy-icon no">×</span><div><b>CONFIG</b><small>API Key、路径、版本或权限错误</small></div><em>先修复</em></div>
+            <div class="policy-row"><span class="policy-icon ok">✓</span><div><b>ARTIFACTS</b><small>已上传的图片、模型与清单可读取</small></div><em>必须</em></div>
+            <div class="policy-note"><span>POST</span><code>/jobs/{job_id}/retry-model</code><p>恢复前执行资源守卫；内存或磁盘不足时保持 FAILED，不先把任务改成 QUEUED。</p></div>
+          </aside>
+        </div>
+
+        <div class="recovery-evidence reveal">
+          <span class="evidence-label">已验证的真实返回值</span>
+          <div class="evidence-grid">
+            <div><span>status</span><b>FAILED</b></div>
+            <div><span>stages.image</span><b class="ok">SUCCEEDED</b></div>
+            <div><span>stages.model</span><b class="bad">FAILED</b></div>
+            <div><span>can_retry_model</span><b class="ok">true</b></div>
+            <div><span>reuses_image_stage</span><b class="ok">true</b></div>
+            <div><span>selected_variant</span><b>B</b></div>
+          </div>
+        </div>
+
+        <div class="event-rule reveal">
+          <span class="event-rule-index">STATE MACHINE</span>
+          <pre><code>FAILED ──retry-model──▶ RETRYING ──dispatch──▶ QUEUED
+  │                         │
+  ├─ quality / config ──────┴──▶ 保持失败，等待人工处理
+  └─ 旧 attempt、事件、错误记录保留，不被覆盖</code></pre>
+          <p>恢复是状态机里的一条显式边，不是把错误字段清空后假装没发生。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="act act-paper" id="act-07" data-scene="act-07">
+      <div class="act-inner">
+        <header class="act-head reveal">
+          <span class="act-number">07</span>
+          <div class="act-heading">
+            <p class="kicker">ENGINEERING BASE / 工程底座</p>
+            <h2>能跑，<br><em>是因为底座先站住。</em></h2>
+          </div>
+          <p class="act-summary">API 不在请求线程里等生图；Redis 不当事实数据库；PostgreSQL 记录状态；MinIO 保存不可变产物；UE 任务在宿主机队列里串行执行。</p>
+        </header>
+
+        <div class="arch-board reveal" aria-label="AI Game Asset Factory 技术架构">
+          <div class="arch-head"><span class="mono">SYSTEM MAP / 2026</span><span class="mono">LONG JOBS OUTSIDE HTTP</span></div>
+          <div class="arch-row">
+            <span class="arch-label">ENTRY</span>
+            <div class="arch-cell"><b>Browser</b><small>Next.js 16 / React 19</small></div>
+            <i class="arch-arrow">→</i>
+            <div class="arch-cell"><b>Nginx</b><small>/api/* → FastAPI</small></div>
+            <i class="arch-arrow">→</i>
+            <div class="arch-cell accent"><b>FastAPI</b><small>analysis / jobs / SSE / resources</small></div>
+          </div>
+          <div class="arch-connector" aria-hidden="true"></div>
+          <div class="arch-row triple">
+            <span class="arch-label">STATE</span>
+            <div class="arch-cell"><b>PostgreSQL</b><small>job truth · stages · events · RAG</small></div>
+            <div class="arch-cell"><b>Redis</b><small>Celery broker · locks · pub/sub · cache</small></div>
+            <div class="arch-cell"><b>MinIO</b><small>images · FBX · textures · manifests</small></div>
+          </div>
+          <div class="arch-connector" aria-hidden="true"></div>
+          <div class="arch-row">
+            <span class="arch-label">COMPUTE</span>
+            <div class="arch-cell wide"><b>Celery Workers</b><small>analysis / production / image / model / rig / report</small></div>
+            <i class="arch-arrow">→</i>
+            <div class="arch-cell accent-two"><b>UE Runner</b><small>Windows host · concurrency = 1</small></div>
+          </div>
+          <div class="arch-connector" aria-hidden="true"></div>
+          <div class="arch-row">
+            <span class="arch-label">REASON</span>
+            <div class="arch-cell"><b>LangGraph</b><small>intent + feasibility graph</small></div>
+            <i class="arch-arrow">→</i>
+            <div class="arch-cell"><b>RAG / pgvector</b><small>BM25 + vector + citations</small></div>
+            <i class="arch-arrow">→</i>
+            <div class="arch-cell"><b>Capability Matrix</b><small>available / partial / unsupported</small></div>
+          </div>
+          <div class="arch-foot"><span><i class="status-dot done"></i> API responds fast</span><span><i class="status-dot done"></i> artifacts are immutable</span><span><i class="status-dot done"></i> retries are audited</span></div>
+        </div>
+
+        <div class="tech-grid reveal">
+          <article class="tech-card"><span>01</span><h3>API 只投递</h3><p>生图、建模、绑骨和 UE 导入都进入队列。HTTP 请求不陪跑十分钟，也不因浏览器关闭而中断生产。</p><code>enqueue → return job_id</code></article>
+          <article class="tech-card"><span>02</span><h3>数据库是事实</h3><p>阶段状态、失败分类、恢复历史、版本与计费事实写入 PostgreSQL。Redis 丢了锁，也不会丢掉任务。</p><code>job_stages / job_events</code></article>
+          <article class="tech-card"><span>03</span><h3>幂等是成本控制</h3><p>阶段输入、spec、依赖产物哈希共同构成幂等键。Worker 崩溃后优先恢复已有产物，而不是重新扣一次费。</p><code>job + stage + input_hash</code></article>
+          <article class="tech-card"><span>04</span><h3>租约与死信</h3><p>Worker 心跳、阶段租约、过期回收和 dead letter 让失败可见、可追、可人工处理，不静默消失。</p><code>lease / heartbeat / dead_letters</code></article>
+          <article class="tech-card"><span>05</span><h3>SSE 可断线重连</h3><p>前端实时看到阶段进度；连接断开后从 PostgreSQL 历史恢复，而不是要求用户刷新页面猜状态。</p><code>events + replay cursor</code></article>
+          <article class="tech-card"><span>06</span><h3>资源守卫在前</h3><p>磁盘、内存或 Worker 版本不满足时，preflight 直接阻断。不会先把任务改成 QUEUED，再在队列里失败。</p><code>/readyz + production preflight</code></article>
+        </div>
+
+        <div class="mock-callout reveal">
+          <span class="mock-stamp">MOCK ≠ DELIVERY</span>
+          <div><strong>Mock 只证明链路连通，不算交付成功。</strong><p>Mock 任务会真实落库、真实上传、真实走队列，但终态强制为 <code>MOCK_NOT_DELIVERABLE</code>。作品集也不拿 Mock 截图冒充真实生成结果。</p></div>
+          <span class="mock-code">deliverable=false</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="act act-final" id="act-08" data-scene="act-08">
+      <div class="act-inner">
+        <header class="act-head reveal">
+          <span class="act-number">08</span>
+          <div class="act-heading">
+            <p class="kicker light">BOUNDARIES / 最后说不能</p>
+            <h2>能说不能，<br><em>才是产品。</em></h2>
+          </div>
+          <p class="act-summary">这个项目最有价值的部分，不是把每条提示词都包装成“已实现”，而是让用户在花积分之前看见交付边界，并在失败后保住已经完成的工作。</p>
+        </header>
+
+        <div class="boundary-grid reveal">
+          <article class="boundary-card done-card">
+            <div class="boundary-card-head"><span>01</span><b>TODAY</b></div>
+            <h3>现在能真正交付</h3>
+            <ul class="check-list">
+              <li>A/B 正背双联设定图</li>
+              <li>静态 3D 模型 + PBR 纹理</li>
+              <li>角色 / 动物 / 道具的主体分流</li>
+              <li>人形与四足自动绑骨能力路径</li>
+              <li>项目 / 场景 / 任务的产物归属</li>
+              <li>网络失败的显式恢复入口</li>
+            </ul>
+          </article>
+          <article class="boundary-card limit-card">
+            <div class="boundary-card-head"><span>02</span><b>NOT YET</b></div>
+            <h3>不承诺、不伪装</h3>
+            <ul class="cross-list">
+              <li>多足骨架与每足 IK</li>
+              <li>爬墙接触与真实步态</li>
+              <li>随光变化的动态虹彩材质</li>
+              <li>完整可玩玩法与动画集</li>
+              <li>生产级 retopo / 手工材质</li>
+              <li>一次生成直接达到影视级主角</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="final-quote reveal">
+          <span class="quote-mark" aria-hidden="true">“</span>
+          <blockquote>AI 生成的瓶颈，往往不是模型不会画，<br>而是系统<em>不知道何时应该停止</em>。</blockquote>
+          <p>这句话决定了整个工作台：先分析、后生成；先选图、后建模；先预检、后绑骨；先恢复、后重试。能力边界不是文档末尾的免责声明，而是流程本身。</p>
+        </div>
+
+        <div class="final-actions reveal">
+          <a class="button button-lime" href="#project-notes">查看项目档案 <span aria-hidden="true">↓</span></a>
+          <a class="button button-ghost-dark" href="https://gitee.com/jiao-wenjin/ai-game-asset-factory" target="_blank" rel="noreferrer">查看 Gitee 源码 <span aria-hidden="true">↗</span></a>
+        </div>
+
+        <div class="final-strip reveal">
+          <span>REAL ASSET</span><i></i><span>REAL FAILURE</span><i></i><span>REAL RECOVERY</span><i></i><span>REAL CHECKPOINT</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="dossier" id="project-notes" data-scene="dossier">
+      <div class="dossier-inner">
+        <div class="dossier-head reveal">
+          <span class="dossier-index">PROJECT<br>DOSSIER</span>
+          <div><p class="kicker">FACTUAL APPENDIX / 2026</p><h2>AI Game Asset Factory</h2></div>
+          <p class="dossier-lede">一个把需求判断、人工确认、异步生成、故障恢复和资产归档串起来的 AI 应用工程项目。作品页里的每一张真实图、每一条错误、每一个状态，都来自项目产物或运行记录。</p>
+        </div>
+
+        <div class="dossier-main reveal">
+          <div class="dossier-copy">
+            <span class="dossier-label">MY ROLE</span>
+            <h3>独立设计与实现整套系统</h3>
+            <p>我做的不是把三个 API 串在一个页面上。更有价值的工作，是把“生成一个资产”拆成可判断、可确认、可暂停、可恢复、可归档的生产状态，并为每一步定义失败方式与责任边界。</p>
+            <p>从前端工作台到 FastAPI、Celery / Redis、PostgreSQL、MinIO、RAG / LangGraph，再到 Windows 宿主机的 UE Runner，都是围绕这个目标做出的工程取舍。</p>
+            <div class="dossier-tags"><span>FastAPI</span><span>Celery</span><span>Redis</span><span>PostgreSQL</span><span>MinIO</span><span>LangGraph</span><span>pgvector</span><span>Next.js 16</span><span>React 19</span><span>UE Runner</span></div>
+          </div>
+          <aside class="dossier-facts">
+            <span class="dossier-label light">PROJECT SNAPSHOT</span>
+            <div class="dossier-fact"><span>角色</span><b>个人项目 · 全栈 / AI 应用</b></div>
+            <div class="dossier-fact"><span>核心命题</span><b>生成之前先判断，失败之后能继续</b></div>
+            <div class="dossier-fact"><span>真实证据</span><b>北极熊任务 · 金币道具 · 网络失败</b></div>
+            <div class="dossier-fact"><span>工程边界</span><b>Mock 不算交付，未实现不承诺</b></div>
+            <div class="dossier-fact"><span>项目状态</span><b>可运行原型 / 作品集版本</b></div>
+            <div class="dossier-stamp"><b>0</b><span>FAKE<br>SUCCESS</span><small>真实失败与未完成能力都保留在作品叙事中</small></div>
+          </aside>
+        </div>
+
+        <div class="dossier-tech">
+          <div class="dossier-tech-head reveal"><div><span class="dossier-label">ENGINEERING DECISIONS</span><h3>技术点，为什么放在那里</h3></div><p>每个组件都对应一个具体问题；不是为了让架构图显得复杂。</p></div>
+          <div class="dossier-tech-grid">
+            <article class="reveal"><span>01</span><h4>FastAPI</h4><p>统一项目、场景、分析、任务、SSE 和资源 API；错误保留 code、action、trace_id。</p></article>
+            <article class="reveal"><span>02</span><h4>Celery + Redis</h4><p>长任务离开请求线程；队列分型、投递去重、租约、心跳、事件通知与死信。</p></article>
+            <article class="reveal"><span>03</span><h4>PostgreSQL</h4><p>任务事实、阶段、事件、恢复历史、用户与场景归属的唯一可信来源。</p></article>
+            <article class="reveal"><span>04</span><h4>MinIO</h4><p>保存图片、FBX、PBR 贴图与 manifest；按内容哈希与 scope 读取。</p></article>
+            <article class="reveal"><span>05</span><h4>LangGraph + RAG</h4><p>意图解析、可行性分类、能力矩阵与工程知识引用；分析阶段零付费调用。</p></article>
+            <article class="reveal"><span>06</span><h4>UE Runner</h4><p>宿主机 Windows 进程适配层，负责工程复用、Level 创建、资源导入与材质后处理。</p></article>
+          </div>
+        </div>
+
+        <div class="dossier-boundary reveal"><strong>作品边界</strong><p>这是一个用于验证完整 AI 资产生产链的可运行原型，不是已经上线的商业生产平台。真实付费运行时、复杂角色重拓扑、多足运动、可玩玩法与跨团队协作仍需要继续建设；作品页保留这些限制，是为了让系统能力更可信，而不是更漂亮。</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="story-footer">
+    <div class="footer-inner">
+      <div class="footer-brand"><span class="brand-mark small" aria-hidden="true"><i></i></span><div><b>ASSET / STORY</b><small>AI Game Asset Factory · Portfolio 2026</small></div></div>
+      <p>把一句话做成能进 UE 的资产，也把不能做的部分留在台面上。</p>
+      <div class="footer-links"><a href="https://gitee.com/jiao-wenjin/ai-game-asset-factory" target="_blank" rel="noreferrer">Gitee 源码</a><a href="#top">回到开头 ↑</a></div>
+    </div>
+  </footer>
+
+  <script src="story.js"></script>
+</body>
+</html>

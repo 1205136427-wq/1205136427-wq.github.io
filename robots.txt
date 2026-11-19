@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://1205136427-wq.github.io/sitemap.xml

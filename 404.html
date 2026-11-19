@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <meta name="theme-color" content="#061a23" />
+    <title>页面未找到｜焦文锦 Portfolio</title>
+    <style>
+      @font-face {
+        font-family: 'Smiley Sans';
+        src: url('/fonts/SmileySans-Oblique.woff2') format('woff2');
+        font-display: swap;
+      }
+      * { box-sizing: border-box; }
+      html, body { min-height: 100%; margin: 0; }
+      body {
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+        padding: 24px;
+        color: #f4f7f7;
+        background:
+          radial-gradient(circle at 66% 18%, rgba(100, 221, 217, .22), transparent 32%),
+          radial-gradient(circle at 18% 76%, rgba(44, 99, 147, .22), transparent 38%),
+          linear-gradient(145deg, #03151e, #071f2a 52%, #020b11);
+        font-family: 'Smiley Sans', 'Microsoft YaHei', sans-serif;
+      }
+      main { width: min(680px, 100%); text-align: center; }
+      p:first-child {
+        margin: 0 0 18px;
+        color: rgba(167, 233, 231, .66);
+        font: 500 11px/1.4 'Segoe UI', sans-serif;
+        letter-spacing: .24em;
+      }
+      h1 { margin: 0; font-size: clamp(52px, 12vw, 112px); font-weight: 400; letter-spacing: -.04em; }
+      h1 span { color: #73ded8; }
+      p { color: rgba(235, 245, 245, .66); font-size: 14px; line-height: 1.9; }
+      a {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        margin-top: 22px;
+        padding: 13px 22px;
+        color: #eaffff;
+        border: 1px solid rgba(150, 233, 229, .36);
+        border-radius: 999px;
+        text-decoration: none;
+        transition: background .2s ease, border-color .2s ease;
+      }
+      a:hover, a:focus-visible { background: rgba(102, 221, 214, .12); border-color: rgba(150, 233, 229, .72); }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p>404 / LOST IN THE CURRENT</p>
+      <h1>这一刻，<span>页面走远了。</span></h1>
+      <p>你访问的地址不存在，或作品路径已经更新。<br />回到海面，继续浏览焦文锦的作品。</p>
+      <a href="/">返回作品集 <span aria-hidden="true">↗</span></a>
+    </main>
+  </body>
+</html>

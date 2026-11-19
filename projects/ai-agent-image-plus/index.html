@@ -1,0 +1,515 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>从一张照片，读懂一整页｜AI 英语阅读产品故事</title>
+  <meta name="description" content="AI Agent Image Plus 的作品集长页：从真实英语阅读痛点出发，讲清拍照识别、双语阅读、点词、长难句分析、阅读助手、生词与历史的完整使用流程。">
+  <meta name="theme-color" content="#08111e">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="stylesheet" href="story.css">
+</head>
+<body>
+  <a class="skip-link" href="#story-main">跳到正文</a>
+  <div class="reading-progress" aria-hidden="true"><i id="readingProgress"></i></div>
+
+  <header class="topbar" id="topbar">
+    <a class="brand" href="#top" aria-label="回到开头">
+      <span class="brand-mark">A+</span>
+      <span class="brand-copy"><b>READING</b><small>PRODUCT STORY</small></span>
+    </a>
+    <nav class="chapter-nav" aria-label="章节导航">
+      <a href="#problem" data-label="为什么"><span>01</span></a>
+      <a href="#capture" data-label="拍照"><span>02</span></a>
+      <a href="#reading" data-label="阅读"><span>03</span></a>
+      <a href="#lookup" data-label="查词"><span>04</span></a>
+      <a href="#analysis" data-label="长难句"><span>05</span></a>
+      <a href="#assistant" data-label="助手"><span>06</span></a>
+      <a href="#library" data-label="沉淀"><span>07</span></a>
+      <a href="#product" data-label="产品化"><span>08</span></a>
+    </nav>
+    <a class="topbar-end" href="#ending">结尾 <span aria-hidden="true">↘</span></a>
+  </header>
+
+  <main id="story-main">
+    <section class="hero" id="top">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="hero-word" aria-hidden="true">READ</div>
+      <div class="hero-inner">
+        <div class="hero-copy reveal">
+          <p class="eyebrow"><i></i> AI AGENT IMAGE PLUS · A READING STORY</p>
+          <h1><span>从一张照片</span><br><em>读懂这一页</em></h1>
+          <p class="hero-lead">真正的英语阅读困难，往往不是查不到一个词，而是每查一次，就离开文章一次。这个项目把识别、翻译、查词、长难句和阅读助手，收进同一页。</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#problem">顺着使用流程读 <span>↓</span></a>
+            <a class="button ghost" href="#analysis">直接看长难句分析</a>
+          </div>
+          <div class="hero-metrics" aria-label="项目概览">
+            <div><b>1</b><span>张照片<br>生成阅读页</span></div>
+            <div><b>3</b><span>层阅读辅助<br>词 · 句 · 文</span></div>
+            <div><b>0</b><span>次页面跳转<br>对话留在原页</span></div>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal" aria-label="手机阅读页示意">
+          <div class="hero-orbit orbit-one" aria-hidden="true"></div>
+          <div class="hero-orbit orbit-two" aria-hidden="true"></div>
+          <article class="raw-paper" aria-hidden="true">
+            <span class="raw-kicker">ORIGINAL PAGE</span>
+            <p>Most people believe that change requires a dramatic decision.</p>
+            <p>In reality, lasting change often begins with a habit...</p>
+            <i></i><i></i><i></i>
+          </article>
+          <div class="device hero-device">
+            <span class="device-speaker" aria-hidden="true"></span>
+            <img src="assets/reading-top.png" alt="双语阅读页：英文在上，中文在下">
+          </div>
+          <div class="float-note note-a"><span>US / UK</span><b>点词即查</b></div>
+          <div class="float-note note-b"><span>本次生词</span><b>只留下新增</b></div>
+          <div class="float-note note-c"><span>AI</span><b>不打断阅读</b></div>
+        </div>
+      </div>
+      <div class="hero-foot">
+        <span>SCROLL TO FOLLOW THE READING</span>
+        <span class="scroll-rule" aria-hidden="true"></span>
+        <span>01 — 08</span>
+      </div>
+    </section>
+
+    <section class="manifesto section" id="problem">
+      <div class="wrap">
+        <div class="manifesto-head reveal">
+          <p class="chapter-mark">01 / WHY THIS EXISTS</p>
+          <h2>读一页英文，<br>不该被打断五次。</h2>
+        </div>
+        <div class="manifesto-body">
+          <p class="big-quote reveal">“不是信息不够，<br>而是每条信息都把你带离正文。”</p>
+          <p class="body-copy reveal">一张教材照片，通常要经过翻译软件、词典、笔记 App、语法搜索，最后再回到原文。每切换一次，读者都要重新找到刚才那一行。这个项目想解决的不是“有没有 AI”，而是让所有辅助都发生在同一段阅读里。</p>
+        </div>
+        <div class="friction-grid">
+          <article class="friction-card reveal">
+            <span class="friction-no">01</span>
+            <div class="friction-icon">↔</div>
+            <h3>翻译一次，眼神要重新找位置</h3>
+            <p>左右并排的双语页看似高效，实际会让人不断横向跳读；中文如果太小，又很难真正对照。</p>
+          </article>
+          <article class="friction-card reveal">
+            <span class="friction-no">02</span>
+            <div class="friction-icon">⌕</div>
+            <h3>查词一次，上下文已经断了</h3>
+            <p>离开文章去查一个词，再回来时忘了上一句。释义、音标和发音本来应该贴着正文出现。</p>
+          </article>
+          <article class="friction-card reveal">
+            <span class="friction-no">03</span>
+            <div class="friction-icon">◫</div>
+            <h3>收藏一次，知识散在另一个 App</h3>
+            <p>生词、阅读记录和长难句解析彼此分开，读完之后没有一条自然的复习路径。</p>
+          </article>
+        </div>
+        <div class="promise-line reveal">
+          <span>所以产品只坚持一件事</span>
+          <strong>让用户始终留在这一页。</strong>
+          <span class="mono">STAY WITH THE PAGE</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="act act-light capture" id="capture">
+      <div class="wrap">
+        <header class="act-head reveal">
+          <div class="act-no">02</div>
+          <div>
+            <p class="chapter-mark">CAPTURE → UNDERSTAND</p>
+            <h2>拍一下，<br>先把这一页接住。</h2>
+          </div>
+          <p class="act-intro">用户不需要理解 OCR、模型或分句。入口只有一个：对准正在读的那一页。</p>
+        </header>
+
+        <div class="capture-grid">
+          <div class="capture-copy">
+            <p class="lead reveal">从课本、论文、试卷到随手拍下的英文段落，选取一张图片后，系统完成正文提取、分段与翻译，直接生成可阅读的双语页面。</p>
+            <ol class="process-list">
+              <li class="reveal"><span>01</span><div><b>拍照或从相册选择</b><p>保持用户原来的阅读动作，不要求先整理文件。</p></div></li>
+              <li class="reveal"><span>02</span><div><b>提取英文正文</b><p>把图片里的文字变成可点、可选、可排版的文本。</p></div></li>
+              <li class="reveal"><span>03</span><div><b>分段翻译</b><p>按段落成对生成中文，避免整页一次性翻译失去上下文。</p></div></li>
+              <li class="reveal"><span>04</span><div><b>生成阅读页并留档</b><p>结果进入历史记录，下一次可以从上次的文章继续。</p></div></li>
+            </ol>
+            <div class="design-note reveal">
+              <span class="note-label">设计取舍</span>
+              <p>首页不堆功能，只保留“拍照 / 相册 / 历史 / 生词”四个高频入口。减少第一步的选择，才有后面的连续阅读。</p>
+            </div>
+          </div>
+
+          <div class="capture-visual reveal">
+            <div class="soft-orbit" aria-hidden="true"></div>
+            <div class="device device-shadow">
+              <span class="device-speaker" aria-hidden="true"></span>
+              <img src="assets/home.png" alt="英语阅读首页：拍照识别、相册选择、历史阅读与我的生词">
+            </div>
+            <div class="caption-card cap-top"><span>SCAN</span><b>一张图开始</b><small>识别 → 翻译 → 排版</small></div>
+            <div class="caption-card cap-bottom"><span>LOCAL FIRST</span><b>阅读记录留在本机</b><small>个人版数据不离开设备</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="act act-dark reading-chapter" id="reading">
+      <div class="wrap-wide">
+        <header class="act-head inverse reveal">
+          <div class="act-no">03</div>
+          <div>
+            <p class="chapter-mark">READING LAYOUT</p>
+            <h2>阅读页只做一件事：<br>让你继续读。</h2>
+          </div>
+          <p class="act-intro">不把双语硬塞在一屏，而是按“先英文、再中文”的顺序，让两种语言都保留可读性。</p>
+        </header>
+
+        <div class="reading-stage">
+          <div class="reading-notes notes-left">
+            <article class="stage-note reveal">
+              <span>01</span>
+              <h3>英文在上，中文在下</h3>
+              <p>中文使用更大字号、更舒展的行高。读者不必横向来回找对应段落，也不会被过小的中文挤到看不清。</p>
+            </article>
+            <article class="stage-note reveal">
+              <span>02</span>
+              <h3>两层工具栏固定</h3>
+              <p>“返回 / 生词表”和“US / UK / 补齐词条 / 导出 PDF”在滚动时保持原位，不把操作带到屏幕外。</p>
+            </article>
+          </div>
+          <div class="reading-phone reveal">
+            <div class="phone-halo" aria-hidden="true"></div>
+            <div class="device device-large">
+              <span class="device-speaker" aria-hidden="true"></span>
+              <img src="assets/reading-top.png" alt="真实阅读页：固定工具栏、英文与中文上下对照">
+            </div>
+            <div class="phone-tag tag-accent">固定工具栏</div>
+            <div class="phone-tag tag-bottom">底部导航常驻</div>
+          </div>
+          <div class="reading-notes notes-right">
+            <article class="stage-note reveal">
+              <span>03</span>
+              <h3>底部四个入口始终在</h3>
+              <p>首页、历史、生词本、我的保持全局可见。进入文章后仍能一键回到自己的词和记录，而不是迷路。</p>
+            </article>
+            <article class="stage-note reveal">
+              <span>04</span>
+              <h3>词典与辅助不挡正文</h3>
+              <p>音标、词性、释义和发音贴着当前词出现；点击空白处立即消失，正文重新变得干净。</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="reading-rule reveal">
+          <span>不是“把两种语言塞满屏幕”</span>
+          <b>而是“让两种语言都值得读”</b>
+        </div>
+      </div>
+    </section>
+
+    <section class="act act-paper lookup-chapter" id="lookup">
+      <div class="wrap">
+        <header class="act-head reveal">
+          <div class="act-no">04</div>
+          <div>
+            <p class="chapter-mark">ONE WORD, IN CONTEXT</p>
+            <h2>点一个词，<br>不离开这一页。</h2>
+          </div>
+          <p class="act-intro">释义不是把用户带到词典，而是贴着当前句子出现；看完就消失，阅读位置没有变化。</p>
+        </header>
+
+        <div class="lookup-grid">
+          <div class="lookup-shot reveal">
+            <div class="device device-lookup">
+              <span class="device-speaker" aria-hidden="true"></span>
+              <img src="assets/word-card.png" alt="阅读页点击 dramatic 后出现音标、词性与中文释义">
+            </div>
+            <span class="shot-label">点词 → 词条 → 发音 / 收藏</span>
+          </div>
+
+          <div class="lookup-copy">
+            <p class="lead reveal">一个词卡里只放此刻真正需要的信息：英式与美式音标、词性、中文释义、发音按钮，以及加入生词本的动作。</p>
+            <div class="word-demo reveal" id="wordDemo">
+              <span class="demo-label">TRY IT · 点击高亮单词</span>
+              <p>Most people believe that change requires a <button class="demo-word" type="button" data-word="dramatic">dramatic</button> decision.</p>
+              <div class="word-pop" id="wordPop" hidden>
+                <div><b>dramatic</b><span>US /drəˈmætɪk/</span><span>UK /drəˈmætɪk/</span></div>
+                <p><em>adj.</em> 戏剧性的；巨大的</p>
+                <button type="button" aria-label="播放发音">◖ 发音</button>
+              </div>
+              <i class="demo-hint">点击卡片外，词条会收起</i>
+            </div>
+            <ul class="benefit-list">
+              <li class="reveal"><span>音标分层</span><p>UK / US 放在单词下方并做视觉弱化，不与中文释义争空间。</p></li>
+              <li class="reveal"><span>双击收藏</span><p>双击正文单词加入或移出生词本；不确定时也可以用词卡里的按钮。</p></li>
+              <li class="reveal"><span>点空白关闭</span><p>不用专门找关闭按钮，点正文空白处就恢复干净页面。</p></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="act act-cosmic analysis-chapter" id="analysis">
+      <div class="cosmic-grid" aria-hidden="true"></div>
+      <div class="cosmic-aurora" aria-hidden="true"></div>
+      <div class="wrap">
+        <header class="act-head inverse reveal">
+          <div class="act-no">05</div>
+          <div>
+            <p class="chapter-mark">A SENTENCE, EXPLAINED</p>
+            <h2>长难句，<br>一次讲清楚。</h2>
+          </div>
+          <p class="act-intro">不预设所有句子都值得分析。用户在正文里手动选中真正没读懂的那一句，再让它进入 AI 小球。</p>
+        </header>
+
+        <div class="analysis-lab reveal" id="analysisDemo">
+          <div class="particle-layer" id="particleLayer" aria-hidden="true"></div>
+          <div class="analysis-left">
+            <div class="selectable-quote" id="selectableSentence" tabindex="0">
+              <span class="quote-mark" aria-hidden="true">“</span>
+              To Microsoft’s critics, the fates of Wunderlist and Sunrise are examples of a remorseless drive by Big Tech to chew up any innovative companies that lie in their path.
+              <span class="selection-line" aria-hidden="true"></span>
+            </div>
+            <button class="analyze-button" id="analyzeButton" type="button">
+              <span>长难句分析</span><i aria-hidden="true">↗</i>
+            </button>
+            <article class="analysis-result" id="analysisResult" aria-live="polite">
+              <div class="result-head"><span>05 / SENTENCE MAP</span><b>分析完成</b></div>
+              <h3>先找主干，再看谁修饰谁。</h3>
+              <dl>
+                <div><dt>主干</dt><dd>the fates of Wunderlist and Sunrise are examples</dd></div>
+                <div><dt>修饰</dt><dd>of a remorseless drive 修饰 examples；by Big Tech 修饰 drive</dd></div>
+                <div><dt>从句</dt><dd>that lie in their path 是定语从句，修饰 companies</dd></div>
+                <div><dt>参考翻译</dt><dd>在微软的批评者看来，Wunderlist 和 Sunrise 的命运体现了大型科技公司无情吞噬任何挡路创新企业的冲动。</dd></div>
+              </dl>
+              <p class="result-tip">分析结果落在当前阅读页下方，不回退、不跳页。</p>
+            </article>
+          </div>
+
+          <div class="orb-lab" id="orbLab">
+            <div class="orb-ring ring-a" aria-hidden="true"></div>
+            <div class="orb-ring ring-b" aria-hidden="true"></div>
+            <div class="orb-ring ring-c" aria-hidden="true"></div>
+            <div class="orb-aurora" aria-hidden="true"></div>
+            <div class="ai-orb" aria-hidden="true"><span>AI</span><i></i></div>
+            <p class="orb-status" id="analysisStatus">选中句子后，<br>信息会飞向这里。</p>
+            <span class="orb-legend">DRAG · READ · UNDERSTAND</span>
+          </div>
+        </div>
+
+        <div class="analysis-principles">
+          <article class="reveal"><span>01</span><h3>用户决定分析哪一句</h3><p>手指长按并滑动选中，页面出现“长难句分析”。不是把整页都塞满解析。</p></article>
+          <article class="reveal"><span>02</span><h3>过程有明确的反馈</h3><p>句子化成粒子飞入小球，极光环绕，文案只显示“长难句分析中”，不暴露底层模型名。</p></article>
+          <article class="reveal"><span>03</span><h3>结果回到原来的位置</h3><p>分析完成后，解释进入当前页下方。用户知道自己读到了哪里，也知道解释属于哪一句。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="act act-light assistant-chapter" id="assistant">
+      <div class="wrap">
+        <header class="act-head reveal">
+          <div class="act-no">06</div>
+          <div>
+            <p class="chapter-mark">THE ASSISTANT IN THE MARGIN</p>
+            <h2>AI 助手不是<br>另一个 App。</h2>
+          </div>
+          <p class="act-intro">它只是页边的一颗小球。需要时点一下，不需要时淡出；拖到不挡文字的位置，继续读。</p>
+        </header>
+
+        <div class="assistant-grid">
+          <div class="assistant-shot reveal">
+            <div class="device device-assistant">
+              <span class="device-speaker" aria-hidden="true"></span>
+              <img src="assets/assistant.png" alt="阅读助手以半透明浮层出现，不离开当前阅读页">
+            </div>
+            <span class="shot-label">对话浮层 · 当前文章上下文</span>
+          </div>
+          <div class="assistant-copy">
+            <p class="lead reveal">助手回答的是“这篇文章里的问题”：这句话为什么用现在完成时？language 和 tongue 在这里有什么差别？帮我润色这一句，但不改变原意。</p>
+            <div class="rule-stack">
+              <article class="reveal"><span>3s</span><div><h3>静置三秒，自动变淡</h3><p>不阅读时退出视线，不遮挡正文；碰一下又回到不透明。</p></div></article>
+              <article class="reveal"><span>↕</span><div><h3>可以拖到任意位置</h3><p>避开长段落、图片或难句，让用户自己决定它应该待在哪里。</p></div></article>
+              <article class="reveal"><span>▢</span><div><h3>在当前页展开浮层</h3><p>不产生新的对话页面，也没有返回成本。点浮层外就能关闭。</p></div></article>
+            </div>
+          </div>
+        </div>
+
+        <div class="orb-playground reveal" id="orbPlayground">
+          <div class="playground-head">
+            <span>TRY THE ORB</span>
+            <h3>拖它一下，再点开。</h3>
+            <p>松开 3 秒后会变淡。这个演示不发起任何网络请求。</p>
+          </div>
+          <div class="playground-page">
+            <p>The real difficulty is not the word itself, but the way it changes meaning inside a longer sentence.</p>
+            <span class="playground-line"></span>
+            <span class="playground-line short"></span>
+            <button class="mini-orb" id="demoOrb" type="button" aria-label="打开阅读助手演示">
+              <span>AI</span><i></i>
+            </button>
+            <div class="mini-chat" id="demoChat" hidden>
+              <div class="mini-chat-head"><b>阅读助手</b><button id="demoChatClose" type="button" aria-label="关闭演示">×</button></div>
+              <p>这句话的主干是 difficulty is not the word itself。but 后面补充说明真正的难点在哪里。</p>
+              <span>基于当前段落回答</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="act act-warm library-chapter" id="library">
+      <div class="wrap">
+        <header class="act-head reveal">
+          <div class="act-no">07</div>
+          <div>
+            <p class="chapter-mark">KEEP WHAT MATTERS</p>
+            <h2>读完之后，<br>留下能复习的东西。</h2>
+          </div>
+          <p class="act-intro">生词和历史不是阅读的副产品，而是下一次阅读的起点。它们必须足够轻，才不会变成新的负担。</p>
+        </header>
+
+        <div class="library-grid">
+          <div class="library-shot reveal">
+            <div class="device device-library">
+              <span class="device-speaker" aria-hidden="true"></span>
+              <img src="assets/word-table.png" alt="本次生词表：单词、词性缩写、中文和移出操作">
+            </div>
+            <div class="library-caption">
+              <span>本次生词</span>
+              <p>只保存这次阅读新加入的词。历史生词留在生词本，不再重复铺在每篇文章下面。</p>
+            </div>
+          </div>
+
+          <div class="library-copy">
+            <div class="library-feature reveal">
+              <span class="feature-index">01</span>
+              <div>
+                <h3>四列就够：单词、词性、中文、移出</h3>
+                <p>UK / US 音标放到单词下方并弱化层级，把宽度让给中文释义。词性统一使用 <em>n. / v. / adj.</em> 这类缩写，避免和释义框重叠。</p>
+              </div>
+            </div>
+            <div class="library-feature reveal">
+              <span class="feature-index">02</span>
+              <div>
+                <h3>左滑，只清除这一条</h3>
+                <p>历史记录和生词本都采用单条左滑清除，不再用右上角“一键清空”。误删风险更低，也更符合手机的列表操作习惯。</p>
+              </div>
+            </div>
+            <div class="library-feature reveal">
+              <span class="feature-index">03</span>
+              <div>
+                <h3>导航与标题栏不跟着内容走</h3>
+                <p>历史、生词本、阅读页的顶部操作保持固定；首页、历史、生词本、我的四个底部入口始终可达。</p>
+              </div>
+            </div>
+
+            <div class="swipe-demo reveal" id="swipeDemo">
+              <span class="swipe-label">TRY IT · 向左拖动</span>
+              <div class="swipe-shell">
+                <div class="swipe-rail"><button id="swipeDelete" type="button">清除</button></div>
+                <div class="swipe-card" id="swipeCard" tabindex="0">
+                  <div class="swipe-word"><b>identity</b><small>n. · 身份；认同</small></div>
+                  <button class="speaker-button" type="button" aria-label="播放发音">◖</button>
+                </div>
+              </div>
+              <i>只清除当前词条，不影响其他收藏</i>
+            </div>
+          </div>
+        </div>
+
+        <div class="library-strip">
+          <figure class="mini-figure reveal">
+            <div class="mini-phone"><img src="assets/history.png" alt="历史阅读页：顶部标题和底部导航固定"></div>
+            <figcaption><span>HISTORY</span><b>最近打开的页面按时间排好</b></figcaption>
+          </figure>
+          <figure class="mini-figure reveal">
+            <div class="mini-phone"><img src="assets/wordbook.png" alt="我的生词：单词、音标、词性、释义和发音"></div>
+            <figcaption><span>WORDBOOK</span><b>词条只留下最常用的发音入口</b></figcaption>
+          </figure>
+          <div class="library-quote reveal">
+            <span>“</span>
+            <p>复习不该从整理开始。打开生词本，应该立刻看到能读、能听、能移除的词。</p>
+            <small>— 列表交互的三条底线</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="act act-dark product-chapter" id="product">
+      <div class="wrap">
+        <header class="act-head inverse reveal">
+          <div class="act-no">08</div>
+          <div>
+            <p class="chapter-mark">FROM PERSONAL TOOL TO PRODUCT</p>
+            <h2>把一次好用的阅读，<br>变成可交付的产品。</h2>
+          </div>
+          <p class="act-intro">个人版先把体验跑通；小程序版本再把模型调用、会员与数据放回服务端，用户只负责阅读。</p>
+        </header>
+
+        <div class="system-map reveal" aria-label="小程序服务端架构示意">
+          <article class="system-node client">
+            <span>CLIENT</span>
+            <h3>微信小程序</h3>
+            <p>拍照、阅读、查词、对话、生词与历史</p>
+            <small>不保存任何模型密钥</small>
+          </article>
+          <div class="system-link"><span>HTTPS + TOKEN</span><i></i></div>
+          <article class="system-node server">
+            <span>YOUR SERVER</span>
+            <h3>服务端</h3>
+            <p>登录 · 会员 · 额度 · 订单 · 内容安全</p>
+            <small>所有扣费与权限判断都在这里</small>
+          </article>
+          <div class="system-link"><span>PRIVATE CALL</span><i></i></div>
+          <div class="provider-stack">
+            <article class="system-node provider"><span>OCR</span><h3>火山引擎</h3><small>图片 → 英文正文</small></article>
+            <article class="system-node provider"><span>LLM</span><h3>DeepSeek</h3><small>翻译 · 句法 · 对话</small></article>
+          </div>
+        </div>
+
+        <div class="system-facts">
+          <article class="reveal"><span>01</span><h3>密钥只在服务端</h3><p>小程序客户端只负责显示。用户不需要配置 API，也不应该看到供应商密钥。</p></article>
+          <article class="reveal"><span>02</span><h3>不自动续费，到期即停</h3><p>付款后获得固定有效期；到期后停止 AI 功能，历史阅读和生词仍然保留，续费后继续使用。</p></article>
+          <article class="reveal"><span>03</span><h3>额度而非“无限次”</h3><p>原型按 9.9 元 / 30 天、100 次图片识别与 400 轮对话估算毛利，真实价格要用用量日志校准。</p></article>
+          <article class="reveal"><span>04</span><h3>图片短存，结果结构化</h3><p>原图放私有桶，OCR 完成后删除；长期保存阅读结果、词条和用户自己的记录。</p></article>
+        </div>
+
+        <div class="engineering-head reveal">
+          <p class="chapter-mark">BEHIND THE CALM INTERFACE</p>
+          <h3>让页面保持简单，<br>是因为复杂被放在了后面。</h3>
+        </div>
+        <div class="engineering-grid">
+          <article class="reveal"><span>RAG</span><h3>知道什么</h3><p>检索本地文档、教材和笔记，回答时带着来源，不把所有内容一次性塞进上下文。</p></article>
+          <article class="reveal"><span>SKILLS</span><h3>这类任务怎么做</h3><p>把识图阅读、数学题、资料研究和工程构建写成按需加载的固定流程。</p></article>
+          <article class="reveal"><span>TOOLS</span><h3>真正执行动作</h3><p>识图、计算、生成阅读页和写入生词，不靠模型“想象已经完成”。</p></article>
+          <article class="reveal"><span>MEMORY</span><h3>只记住最相关的</h3><p>短、中、长三层记忆分别裁剪与压缩，避免对话越多、上下文越无限膨胀。</p></article>
+        </div>
+        <p class="engineering-note reveal">RAG 负责“查资料”，Skills 负责“按流程做”，Tools 负责“真的执行”，Memory 负责“记住用户”。四者分开之后，能力可以增长，页面却不必变复杂。</p>
+      </div>
+    </section>
+
+    <section class="ending" id="ending">
+      <div class="ending-glow" aria-hidden="true"></div>
+      <div class="wrap ending-inner">
+        <p class="chapter-mark reveal">THE PAGE, RESTORED</p>
+        <h2 class="reveal">一页英文，<br><em>终于能读到尾。</em></h2>
+        <p class="ending-lead reveal">从一个真实、高频、容易被打断的动作出发：拍下一页正在读的英文。然后把所有必要的帮助，放回这一页里。</p>
+        <div class="ending-actions reveal">
+          <a class="button primary" href="#top">重新读一遍 <span>↑</span></a>
+          <a class="button ghost" href="#library">再看生词与历史</a>
+        </div>
+        <div class="ending-meta reveal">
+          <span>AI AGENT IMAGE PLUS</span>
+          <span>PRODUCT STORY · 2026</span>
+          <span>浏览器交互回归 · 0 断言失败</span>
+        </div>
+      </div>
+      <div class="ending-word" aria-hidden="true">READ</div>
+    </section>
+  </main>
+
+  <script src="story.js"></script>
+</body>
+</html>

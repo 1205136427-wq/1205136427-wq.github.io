@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#061a23" />
+    <meta name="author" content="焦文锦" />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <meta
+      name="description"
+      content="焦文锦的个人作品集。数字媒体技术背景，融合 C++、Python、产品设计与交互体验。"
+    />
+    <link rel="canonical" href="https://1205136427-wq.github.io/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://1205136427-wq.github.io/" />
+    <meta property="og:site_name" content="焦文锦 — Portfolio" />
+    <meta property="og:title" content="焦文锦 — Portfolio" />
+    <meta
+      property="og:description"
+      content="数字媒体技术背景，技术与艺术相结合的工程师。"
+    />
+    <meta property="og:image" content="https://1205136427-wq.github.io/og-cover.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="zh_CN" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="焦文锦 — Portfolio" />
+    <meta
+      name="twitter:description"
+      content="数字媒体技术背景，技术与艺术相结合的工程师。"
+    />
+    <meta name="twitter:image" content="https://1205136427-wq.github.io/og-cover.jpg" />
+    <title>焦文锦 — Portfolio</title>
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <script type="module" crossorigin src="./assets/index-C6l-_3wF.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-DUznGmTZ.css">
+  </head>
+  <body>
+    <div id="app" class="site-shell">
+      <canvas id="ocean-canvas" class="ocean-canvas" aria-hidden="true"></canvas>
+      <div class="scene-fallback" aria-hidden="true"></div>
+      <div class="grain-layer" aria-hidden="true"></div>
+      <div class="vignette-layer" aria-hidden="true"></div>
+
+      <div class="cursor" id="cursor" aria-hidden="true">
+        <span class="cursor__dot"></span>
+        <span class="cursor__ring"></span>
+      </div>
+
+      <header class="topbar">
+        <a class="brand" id="brandHome" href="#" aria-label="回到海面">
+          <span class="brand__mark" aria-hidden="true">JWJ<span>.</span></span>
+          <span class="brand__identity">
+            <span class="brand__name">焦文锦</span>
+            <span class="brand__descriptor">PORTFOLIO</span>
+          </span>
+          <span class="brand__index" id="pageIndex">01</span>
+        </a>
+        <p class="topbar__meta">PORTFOLIO <span>2026</span></p>
+        <button class="sound-toggle" id="soundToggle" type="button" aria-pressed="false">
+          <span class="sound-toggle__bars" aria-hidden="true">
+            <i></i><i></i><i></i>
+          </span>
+          <span id="soundLabel">SOUND OFF</span>
+        </button>
+      </header>
+
+      <main class="experience">
+        <section class="surface-ui" id="surfaceUi" aria-labelledby="heroTitle">
+          <div class="hero-copy">
+            <p class="eyebrow reveal-item">JIAO WENJIN <span>/</span> PERSONAL PORTFOLIO</p>
+            <h1 class="hero-title hero-title--identity reveal-item" id="heroTitle">
+              <span class="hero-title__zh">焦文锦</span>
+              <span class="hero-title__en"><em>Jiao Wenjin</em></span>
+            </h1>
+            <p class="hero-note reveal-item">
+              数字媒体技术背景，技术与艺术相结合的工程师。<br />
+              游走在视觉、工程与交互之间的创作者，习惯把复杂的系统，做成清澈、可感知的体验。<br />
+              既能用 C++ / Python 构建系统，也能把产品与体验设计得清晰、完整。
+            </p>
+
+            <div class="hero-profile reveal-item" aria-label="个人信息">
+              <div class="hero-profile__item">
+                <span>BIRTHDAY</span>
+                <strong>2000.12.24</strong>
+              </div>
+              <div class="hero-profile__item">
+                <span>BACKGROUND</span>
+                <strong>数字媒体技术</strong>
+              </div>
+              <div class="hero-profile__item">
+                <span>PRACTICE</span>
+                <strong>C++ · Python · Product Design</strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="dive-entry reveal-item">
+            <p class="dive-entry__hint">PORTFOLIO / 02</p>
+            <button class="dive-button" id="diveButton" type="button">
+              <span class="dive-button__halo" aria-hidden="true"></span>
+              <span class="dive-button__orbit" aria-hidden="true">
+                <span></span>
+              </span>
+              <span class="dive-button__label">查看作品集</span>
+              <span class="dive-button__sub">ENTER THE PORTFOLIO</span>
+            </button>
+          </div>
+
+          <div class="depth-readout reveal-item" aria-label="下潜深度">
+            <span class="depth-readout__label">DEPTH</span>
+            <span class="depth-readout__value" id="depthValue">000.0</span>
+            <span class="depth-readout__unit">M</span>
+          </div>
+        </section>
+
+        <section class="about-ui portfolio-ui" id="aboutUi" aria-labelledby="portfolioTitle" aria-hidden="true" inert>
+          <div class="about-ui__wash" aria-hidden="true"></div>
+          <div class="portfolio-shell">
+<header class="portfolio-head">
+              <p class="section-kicker about-reveal">SELECTED WORKS <span>/ 02</span></p>
+              <h2 class="portfolio-title about-reveal" id="portfolioTitle">作品集</h2>
+            </header>
+
+            <div class="portfolio-grid" id="projectGrid" aria-label="作品集分类"></div>
+
+<footer class="portfolio-footer about-reveal">
+              <button class="surface-button" id="surfaceButton" type="button">
+                <span>返回海面</span>
+                <span aria-hidden="true">↑</span>
+              </button>
+            </footer>
+          </div>
+
+        </section>
+
+        <section class="archive-ui" id="archiveUi" aria-labelledby="projectDeckTitle" aria-hidden="true" inert>
+          <canvas class="seabed-canvas" id="seabedCanvas" aria-hidden="true"></canvas>
+          <div class="archive-ui__wash" aria-hidden="true"></div>
+          <div class="project-stage">
+            <article class="project-deck" id="projectDeck" aria-labelledby="projectDeckTitle" aria-describedby="projectDeckLead">
+              <span class="project-deck__refraction" aria-hidden="true"></span>
+
+              <header class="deck-header" data-deck-reveal>
+                <div class="deck-header__identity">
+                  <span>PROJECT ARCHIVE / CASE DECK</span>
+                  <span id="projectDeckCounter">01 / 04</span>
+                </div>
+                <button class="archive-back archive-deck-exit" id="archiveBack" type="button">
+                  <span aria-hidden="true">←</span>
+                  <span>返回作品集</span>
+                </button>
+              </header>
+
+              <div class="deck-layout">
+                <div class="deck-copy" data-deck-reveal>
+                  <p class="deck-kicker" id="projectDeckEyebrow">SYSTEMS / C++</p>
+                  <div class="deck-title-row">
+                    <span class="deck-index" id="projectDeckIndex">01</span>
+                    <h2 class="deck-title" id="projectDeckTitle">C++ 工程</h2>
+                  </div>
+                  <p class="deck-english" id="projectDeckEnglish">Quiet engines, exact timing.</p>
+                  <p class="deck-lead" id="projectDeckLead"></p>
+
+                  <div class="deck-meta" aria-label="项目信息">
+                    <span><small>YEAR</small><strong id="projectDeckYear">2026</strong></span>
+                    <span><small>ROLE</small><strong id="projectDeckRole">Engine / Systems</strong></span>
+ <span><small>STATE</small><strong id="projectDeckStatus">CONTENT IN PROGRESS</strong></span>
+                  </div>
+
+                  <ul class="deck-tags" id="projectDeckTags" aria-label="项目标签"></ul>
+
+ <a class="deck-entry deck-entry--mobile" data-project-entry href="#" target="_blank" rel="noopener noreferrer" aria-label="进入项目">
+ <span class="deck-entry__halo" aria-hidden="true"></span>
+ <span class="deck-entry__eyebrow" data-entry-eyebrow>PROJECT STORY</span>
+ <strong class="deck-entry__title" data-entry-title>进入项目</strong>
+ <span class="deck-entry__body" data-entry-body>查看完整项目故事与评测报告</span>
+ <span class="deck-entry__action"><span>OPEN CASE</span><i aria-hidden="true">↗</i></span>
+ </a>
+
+                  <div class="deck-slide-copy">
+                    <p class="deck-slide-kicker" id="deckSlideKicker">FRAME 01 / CONTEXT</p>
+                    <h3 class="deck-slide-title" id="deckSlideTitle"></h3>
+                    <p class="deck-slide-body" id="deckSlideBody"></p>
+ <ul class="deck-slide-points" id="deckSlidePoints"></ul>
+                  </div>
+                </div>
+
+ <figure class="deck-visual" id="projectDeckVisual" aria-label="项目入口">
+                  <div class="deck-visual__topline">
+ <span>PROJECT ACCESS</span>
+                    <span id="projectVisualYear">2026</span>
+                  </div>
+                  <span class="deck-visual__number" id="projectVisualIndex" aria-hidden="true">01</span>
+                  <div class="deck-visual__orbits" aria-hidden="true">
+                    <i></i><i></i><i></i>
+                    <span></span>
+                  </div>
+ <a class="deck-entry" data-project-entry id="projectDeckEntry" href="#" target="_blank" rel="noopener noreferrer" aria-label="进入项目">
+ <span class="deck-entry__halo" aria-hidden="true"></span>
+ <span class="deck-entry__eyebrow" data-entry-eyebrow>PROJECT STORY</span>
+ <strong class="deck-entry__title" data-entry-title>进入项目</strong>
+ <span class="deck-entry__body" data-entry-body>查看完整项目故事与评测报告</span>
+ <span class="deck-entry__action"><span>OPEN CASE</span><i aria-hidden="true">↗</i></span>
+ </a>
+                  <figcaption>
+                    <span id="projectDeckVisualTitle">C++ 工程</span>
+                    <span>DEEP ARCHIVE / 03</span>
+                  </figcaption>
+                </figure>
+              </div>
+
+              <footer class="deck-footer" data-deck-reveal>
+                <nav class="deck-projects" id="projectDeckTabs" aria-label="切换项目"></nav>
+                <div class="deck-slide-controls">
+                  <button id="deckSlidePrev" type="button" aria-label="上一页">←</button>
+                  <span id="deckSlideCount">01 / 03</span>
+                  <button id="deckSlideNext" type="button" aria-label="下一页">→</button>
+                </div>
+              </footer>
+
+              <span class="deck-rail" aria-hidden="true"><i id="deckRailProgress"></i></span>
+            </article>
+          </div>
+
+          <aside class="archive-aside" aria-hidden="true">
+            <span>PROJECT ARCHIVE / BIOLUMINESCENT GALAXY</span>
+            <span>68.2 M</span>
+          </aside>
+
+          <p class="archive-depth" aria-hidden="true">
+            <span>SELECTED WORK / PERSONAL ARCHIVE</span>
+            <span>68.2 M BELOW</span>
+          </p>
+        </section>
+      </main>
+
+      <div class='archive-return-light' id='archiveReturnLight' aria-hidden='true'>
+        <span class='archive-return-light__veil'></span>
+        <span class='archive-return-light__core'></span>
+      </div>
+
+      <canvas class="fish-portal" id="fishPortal" aria-hidden="true"></canvas>
+
+      <div class="loader" id="loader" role="status" aria-live="polite">
+        <div class="loader__mark" aria-hidden="true">
+          <span></span>
+          <span></span>
+        </div>
+        <p class="loader__label">READING THE TIDE</p>
+        <div class="loader__track" aria-hidden="true"><span id="loaderBar"></span></div>
+        <span class="loader__count" id="loaderCount">00</span>
+      </div>
+
+      <div class="webgl-fallback" id="webglFallback" hidden>
+        <p>当前浏览器未启用 WebGL，已切换为静态海洋背景。</p>
+      </div>
+    </div>
+
+    <noscript>
+      <div class="noscript-message">请启用 JavaScript 以体验完整的下潜交互。</div>
+    </noscript>
+  </body>
+</html>
